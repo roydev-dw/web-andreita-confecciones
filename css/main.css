@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Helvetica", Arial, sans-serif;
+}
+
+body {
+  overflow-y: scroll;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+nav {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav .cont-logo {
+  width: 300px;
+  margin-left: 80px;
+  display: flex;
+  justify-content: start;
+}
+nav .cont-logo img {
+  width: 200px;
+}
+nav .cont-menu {
+  display: flex;
+  justify-content: center;
+}
+nav .cont-menu .menu {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+nav .cont-menu .menu a {
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 700;
+  color: #000000;
+}
+nav .cont-menu .menu a:hover, nav .cont-menu .menu a.active {
+  color: #41D9D9;
+}
+nav .cont-carrito {
+  width: 300px;
+  margin-right: 80px;
+  display: flex;
+  justify-content: end;
+}
+nav .cont-carrito img {
+  width: 50px;
+}
+nav .cont-carrito .menu-burguer {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+nav .cont-carrito .line {
+  width: 30px;
+  height: 3px;
+  background-color: #ffffff;
+  margin: 3.5px 0;
+  border-radius: 5px;
+}
+
+/*# sourceMappingURL=main.css.map */

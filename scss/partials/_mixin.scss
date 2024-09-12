@@ -1,0 +1,31 @@
+@mixin tamaños($ancho, $alto) {
+  width: $ancho;
+  height: $alto;
+}
+
+@mixin margin-t {
+  margin-top: 100px;
+}
+
+@mixin margin-b {
+  margin-bottom: 100px;
+}
+
+@mixin btn-verde {
+  border: none;
+  border-radius: $raius-s;
+  background-color: $color-purpura;
+  padding: 10px 15px;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.08);
+    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.3));
+  }
+
+  a {
+    text-decoration: none;
+    color: $color-negro;
+    font-weight: $regular;
+  }
+}

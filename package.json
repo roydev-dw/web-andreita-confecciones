@@ -1,0 +1,12 @@
+{
+  "name": "web.andreita-confecciones",
+  "version": "1.0.0",
+  "description": "Desarrollo de página web para emprendimiento de confecciones, Andreita Confecciones",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch scss/main.scss css/main.css"
+  },
+  "author": "Roydev-dw",
+  "license": "ISC"
+}
