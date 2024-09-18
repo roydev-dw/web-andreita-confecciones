@@ -11,21 +11,22 @@
   margin-bottom: 100px;
 }
 
-@mixin btn-verde {
+@mixin btn-mas-info {
   border: none;
-  border-radius: $raius-s;
-  background-color: $color-purpura;
+  border-radius: $radius-l;
+  background-color: $color-calipso;
   padding: 10px 15px;
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    transform: scale(1.08);
-    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.3));
+    transform: scale(1.03);
+    filter: drop-shadow(0px 0px 5px #0000004d);
   }
 
   a {
     text-decoration: none;
+    font-size: $normal;
+    font-weight: $bold;
     color: $color-negro;
-    font-weight: $regular;
   }
 }

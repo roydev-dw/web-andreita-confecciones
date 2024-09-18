@@ -7,16 +7,23 @@
 
 body {
   overflow-y: scroll;
+  scrollbar-color: blue black;
   font-size: 18px;
   font-weight: 400;
 }
 
 nav {
   width: 100%;
-  height: 100px;
+  padding: 20px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(15px);
 }
 nav .cont-logo {
   width: 300px;
@@ -25,7 +32,7 @@ nav .cont-logo {
   justify-content: start;
 }
 nav .cont-logo img {
-  width: 200px;
+  width: 160px;
 }
 nav .cont-menu {
   display: flex;
@@ -42,8 +49,11 @@ nav .cont-menu .menu a {
   font-weight: 700;
   color: #000000;
 }
-nav .cont-menu .menu a:hover, nav .cont-menu .menu a.active {
+nav .cont-menu .menu a:hover {
   color: #41D9D9;
+}
+nav .cont-menu .menu a.active {
+  color: #F205B3;
 }
 nav .cont-carrito {
   width: 300px;
@@ -65,6 +75,136 @@ nav .cont-carrito .line {
   background-color: #ffffff;
   margin: 3.5px 0;
   border-radius: 5px;
+}
+
+.cont-principal {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1f1f1;
+  padding: 50px 0;
+}
+.cont-principal .cont-producto {
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.cont-principal .cont-producto .cont-img {
+  max-width: 600px;
+}
+.cont-principal .cont-producto .cont-img img {
+  width: 500px;
+}
+.cont-principal .cont-producto .cont-texto {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cont-principal .cont-producto .cont-texto h1 {
+  text-align: center;
+  font-size: 70px;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+.cont-principal .cont-producto .cont-texto p {
+  font-size: 24px;
+  text-align: center;
+}
+.cont-principal .cont-producto .cont-texto p:nth-of-type(1) {
+  font-weight: 900;
+  color: #F205B3;
+  text-transform: uppercase;
+}
+.cont-principal .cont-producto .cont-texto p:nth-of-type(2) {
+  font-weight: 700;
+  color: #000000;
+}
+.cont-principal .cont-producto .cont-texto p:nth-of-type(3) {
+  font-weight: 300;
+  color: #000000;
+}
+.cont-principal .cont-producto .cont-texto button {
+  border: none;
+  border-radius: 10px;
+  background-color: #41D9D9;
+  padding: 10px 15px;
+  transition: all 0.3s ease-in-out;
+}
+.cont-principal .cont-producto .cont-texto button:hover {
+  transform: scale(1.03);
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.3019607843));
+}
+.cont-principal .cont-producto .cont-texto button a {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.cont-ofertas {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cont-ofertas .cont-prod-oferta {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding-left: 400px;
+  padding-right: 400px;
+}
+.cont-ofertas .cont-prod-oferta .cont-prod-img {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px;
+  width: 500px;
+  height: 300px;
+  background-color: #f1f1f1;
+  border-radius: 20px;
+}
+.cont-ofertas .cont-prod-oferta .cont-prod-img img {
+  height: 230px;
+  object-fit: cover;
+}
+.cont-ofertas .cont-prod-oferta .cont-prod-img div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cont-ofertas .cont-prod-oferta .cont-prod-img div h2 {
+  font-size: 24px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.cont-ofertas .cont-prod-oferta .cont-prod-img div button {
+  border: none;
+  border-radius: 10px;
+  background-color: #41D9D9;
+  padding: 10px 15px;
+  transition: all 0.3s ease-in-out;
+}
+.cont-ofertas .cont-prod-oferta .cont-prod-img div button:hover {
+  transform: scale(1.03);
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.3019607843));
+}
+.cont-ofertas .cont-prod-oferta .cont-prod-img div button a {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.cont-productos {
+  background-color: #f1f1f1;
+  width: 100%;
+  height: 1000px;
 }
 
 /*# sourceMappingURL=main.css.map */
