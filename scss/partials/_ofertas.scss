@@ -1,0 +1,111 @@
+.cont-principal {
+  @include margin-t;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-fondo;
+  padding: 50px 0;
+
+  .cont-producto {
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .cont-img {
+      max-width: 600px;
+
+      img {
+        width: 500px;
+      }
+    }
+
+    .cont-texto {
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      h1 {
+        text-align: center;
+        font-size: 70px;
+        font-weight: $extra-bold;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+
+      }
+
+      p {
+        font-size: $grande;
+        text-align: center;
+
+        &:nth-of-type(1) {
+          font-weight: $extra-bold;
+          color: $color-rosado;
+          text-transform: uppercase;
+        }
+
+        &:nth-of-type(2) {
+          font-weight: $bold;
+          color: $color-negro;
+        }
+
+        &:nth-of-type(3) {
+          font-weight: $light;
+          color: $color-negro;
+        }
+      }
+
+      button {
+        @include btn-mas-info
+      }
+    }
+  }
+}
+
+.cont-ofertas {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .cont-prod-oferta {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding-left: 400px;
+    padding-right: 400px;
+
+    .cont-prod-img {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 60px;
+      @include tamaños (500px, 300px);
+      background-color: $color-fondo;
+      border-radius: $radius-xl;
+
+      img {
+        height: 230px;
+        object-fit: cover;
+      }
+
+      div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        h2 {
+          font-size: $grande;
+          font-weight: $extra-bold;
+          text-transform: uppercase;
+        }
+
+        button {
+          @include btn-mas-info;
+        }
+      }
+    }
+  }
+}

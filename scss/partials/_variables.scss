@@ -5,9 +5,10 @@ $color-calipso: #41D9D9;
 $color-azul: #3E0CF2;
 $color-blanco: #ffffff;
 $color-negro: #000000;
+$color-fondo: #f1f1f1;
 
 //Variables de fuentes
-$fuente: 'Helvetica', sans-serif;
+$fuente: "Poppins", sans-serif;
 
 //Variables de tamaño
 $normal: 18px;
@@ -15,14 +16,16 @@ $mediano: 22px;
 $grande: 24px;
 
 //Variables de peso
+$light: 300;
 $regular: 400;
-$negrita-condensada: 500;
-$negrita: 700;
+$medium: 500;
+$bold: 700;
+$extra-bold: 900;
 
 //Variables de Radius
 $raius-s: 5px;
 $radius-m: 7px;
-$raius-l: 10px;
+$radius-l: 10px;
 $radius-xl: 20px;
 
 //variable de sombriado
