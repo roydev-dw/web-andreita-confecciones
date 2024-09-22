@@ -32,7 +32,7 @@
     }
 
     .cont-copy{
-      width: 400px;
+      width: 600px;
       display: flex;
       flex-direction: column;
       
@@ -50,6 +50,60 @@
           }
         }
 
+      }
+
+      .formulario-noticias {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .cont-entrada {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+        }
+
+        i {
+          font-size: 40px;
+          color: $color-blanco;
+        }
+
+        input {
+          width: 400px;
+          height: 34px;
+          border-radius: $radius-m;
+          border: none;
+          outline: none;
+          padding-left: 15px;
+          padding-right: 15px;
+
+          &::placeholder {
+            color: #d6d6d6;
+            font-size: $light;
+          }
+        }
+
+        button {
+          border: none;
+          border-radius: $radius-m;
+          padding: 4px 6px;
+          background-color: $color-calipso;
+          transition: all 0.3s ease-in-out;
+          
+          &:hover {
+            transform: scale(1.01);
+            filter: drop-shadow(0px 0px 5px #0000004d);
+          }
+          
+          & {
+            text-decoration: none;
+            font-size: $normal;
+            font-weight: $bold;
+            color: $color-negro;
+          }
+
+        }
       }
     }
 
