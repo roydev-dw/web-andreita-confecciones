@@ -15,15 +15,25 @@ function actualizarContadorCarrito() {
   contadorCarrito.textContent = carrito.length;
 };
 
-function guardarCarrito () {
+function guardarCarrito() {
   localStorage.setItem('carrito', JSON.stringify(carrito));
 };
 
-function displayCarrito () {
+function displayCarrito() {
   itemsCarrito.innerHTML = '';
+
   carrito.forEach((item) => {
     const li = document.createElement('li');
-    li.textContent = `${item.nombre} - $${item.precio}`;
+    const img = document.createElement('img');
+
+    img.src = item.imagen;
+    img.alt = item.nombre;
+    img.style.width = '40px';
+    img.style.marginRight = '20px';
+
+    li.appendChild(img);
+    li.appendChild(document.createTextNode(`${item.nombre} - $${item.precio}`));
+
     itemsCarrito.appendChild(li);
   });
 };
@@ -36,9 +46,9 @@ function actualizarTotal() {
   totalCarrito.textContent = `Total: $${total}`;
 };
 
-function cargarCarrito () {
+function cargarCarrito() {
   const carritoGuardado = localStorage.getItem('carrito');
-  if(carritoGuardado) {
+  if (carritoGuardado) {
     carrito = JSON.parse(carritoGuardado);
     actualizarContadorCarrito();
     actualizarTotal();
@@ -51,28 +61,42 @@ document.querySelectorAll('.agregar-carrito').forEach((button) => {
     e.preventDefault();
     const tarjetaProducto = button.closest('.productos-card');
     const nombreProducto = tarjetaProducto.querySelector('h2').textContent;
-    const precioProducto = parseFloat(tarjetaProducto.querySelector('.precio-producto').textContent.replace('$',''));
-    const producto = {nombre: nombreProducto, precio: precioProducto};
+    const imagenProducto = tarjetaProducto.querySelector('img').src;
+    const precioProducto = parseFloat(tarjetaProducto.querySelector('.precio-producto').textContent.replace('$', ''));
+    const producto = { nombre: nombreProducto, precio: precioProducto, imagen: imagenProducto };
+
     carrito.push(producto);
     actualizarContadorCarrito();
     guardarCarrito();
     actualizarTotal();
+
+    const modalAgregado = document.getElementById('modal-agregado-carrito');
+    modalAgregado.style.display = 'block';
+    modalAgregado.style.opacity = '1'
+
+    setTimeout(function () {
+      modalAgregado.style.opacity = '0';
+      setTimeout(() => {
+        modalAgregado.style.display = 'none';
+        modalAgregado.style.opacity = '1'
+      }, 1000);
+    }, 1500);
   });
 });
 
-document.querySelector('#icono-carrito').parentElement.addEventListener('click', function(e) {
+document.querySelector('#icono-carrito').parentElement.addEventListener('click', function (e) {
   e.preventDefault();
   modalCarrito.style.display = 'flex';
   displayCarrito();
   actualizarTotal();
 });
 
-cerrarCarrito.addEventListener('click', function() {
+cerrarCarrito.addEventListener('click', function () {
   modalCarrito.style.display = 'none';
 
 });
 
-botonVerificar.addEventListener('click', function() {
+botonVerificar.addEventListener('click', function () {
   modalCompra.style.display = 'flex';
   carrito = [];
   actualizarContadorCarrito();
@@ -81,8 +105,25 @@ botonVerificar.addEventListener('click', function() {
   modalCarrito.style.display = 'none';
 });
 
-cerrarCompra.addEventListener('click', function() {
+cerrarCompra.addEventListener('click', function () {
   modalCompra.style.display = 'none';
+});
+
+document.querySelector('.formulario-noticias').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const modalSuscripcion = document.getElementById('modal-suscripcion');
+
+  modalSuscripcion.style.display = 'block';
+
+  setTimeout(function () {
+    modalSuscripcion.style.opacity = '0';
+    setTimeout(() => {
+      modalSuscripcion.style.display = 'none';
+      modalSuscripcion.style.opacity = '1'
+    }, 1000);
+  }, 1500);
+
+  this.reset();
 });
 
 cargarCarrito();
