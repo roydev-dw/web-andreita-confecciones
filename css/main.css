@@ -21,7 +21,7 @@ nav {
   top: 0;
   left: 0;
   z-index: 1;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.3019607843);
   backdrop-filter: blur(15px);
 }
 nav .cont-logo {
@@ -63,9 +63,16 @@ nav .cont-carrito {
   display: flex;
   justify-content: end;
 }
-nav .cont-carrito .bi {
-  font-size: 40px;
+nav .cont-carrito a .bi {
+  font-size: 50px;
   color: #000000;
+}
+nav .cont-carrito a .contador-carrito {
+  position: absolute;
+  top: 45px;
+  right: 98px;
+  color: #ffffff;
+  font-weight: 900;
 }
 nav .cont-carrito .menu-burguer {
   display: none;
@@ -236,11 +243,13 @@ nav .cont-carrito .line {
   align-items: center;
 }
 .cont-productos .productos-card .productos-card-texto h2 {
+  width: 300px;
   margin-top: 10px;
   font-size: 24px;
   font-weight: 900;
   text-transform: uppercase;
   text-align: center;
+  text-wrap: balance;
 }
 .cont-productos .productos-card .productos-card-texto p {
   width: 300px;
@@ -297,7 +306,8 @@ nav .cont-carrito .line {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6901960784);
+  background-color: rgba(0, 0, 0, 0.5647058824);
+  backdrop-filter: blur(15px);
   justify-content: center;
   align-items: center;
 }
@@ -305,19 +315,26 @@ nav .cont-carrito .line {
   background-color: #ffffff;
   padding: 20px;
   border-radius: 10px;
-  width: 300px;
-  max-height: 400px;
+  width: 500px;
+  max-height: 600px;
   overflow-y: auto;
 }
-.modal-carrito .cont-carrito span {
+.modal-carrito .cont-carrito .cont-cerrar-carrito {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal-carrito .cont-carrito .cont-cerrar-carrito span {
   cursor: pointer;
   font-size: 45px;
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  color: #ffffff;
+  color: #F205B3;
+  padding-bottom: 4px;
+}
+.modal-carrito .cont-carrito .cont-cerrar-carrito h2 {
+  font-weight: 700;
 }
 .modal-carrito .cont-carrito ul {
+  margin-top: 20px;
   list-style: none;
   padding: 0;
 }
@@ -326,10 +343,10 @@ nav .cont-carrito .line {
   border-radius: 7px;
 }
 .modal-carrito .cont-carrito p {
-  margin-top: 15px;
   font-weight: 900;
 }
 .modal-carrito .cont-carrito button {
+  margin-top: 40px;
   border: none;
   border-radius: 10px;
   background-color: #41D9D9;
@@ -354,7 +371,8 @@ nav .cont-carrito .line {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6901960784);
+  background-color: rgba(0, 0, 0, 0.5647058824);
+  backdrop-filter: blur(15px);
   justify-content: center;
   align-items: center;
 }
@@ -363,10 +381,15 @@ nav .cont-carrito .line {
   padding: 20px;
   border-radius: 10px;
   text-align: center;
-  width: 300px;
+  width: 500px;
 }
 .modal-compra .cont-compra h2 {
+  font-weight: 700;
   margin-bottom: 15px;
+  text-wrap: balance;
+}
+.modal-compra .cont-compra p {
+  text-wrap: balance;
 }
 .modal-compra .cont-compra button {
   border: none;

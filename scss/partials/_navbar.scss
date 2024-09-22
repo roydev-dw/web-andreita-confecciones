@@ -9,7 +9,7 @@ nav {
   top: 0;
   left: 0;
   z-index: 1;
-  background-color: rgba(255, 255, 255, 0.30);
+  background-color: #ffffff4d;
   backdrop-filter: blur(15px);
 
   .cont-logo {
@@ -58,9 +58,19 @@ nav {
     display: flex;
     justify-content: end;
 
-    .bi {
-      font-size: 40px;
-      color: $color-negro;
+    a {
+      .bi {
+        font-size: 50px;
+        color: $color-negro;
+      }
+
+      .contador-carrito {
+        position: absolute;
+        top: 45px;
+        right: 98px;
+        color: $color-blanco;
+        font-weight: $extra-bold;
+      }
     }
 
     .menu-burguer {
