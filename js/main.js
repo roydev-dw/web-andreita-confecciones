@@ -74,22 +74,14 @@ document.querySelectorAll('.agregar-carrito').forEach((button) => {
     modalAgregado.style.display = 'block';
     modalAgregado.style.opacity = '1'
 
-<<<<<<< HEAD
     setTimeout(function () {
-=======
-    setTimeout(function() {
->>>>>>> 94dc3b8e2a2f72f42f29522bbaba111a6b76662d
       modalAgregado.style.opacity = '0';
       setTimeout(() => {
         modalAgregado.style.display = 'none';
         modalAgregado.style.opacity = '1'
       }, 1000);
     }, 1500);
-<<<<<<< HEAD
   });
-=======
-  }); 
->>>>>>> 94dc3b8e2a2f72f42f29522bbaba111a6b76662d
 });
 
 document.querySelector('#icono-carrito').parentElement.addEventListener('click', function (e) {
