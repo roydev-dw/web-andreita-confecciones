@@ -310,13 +310,14 @@ nav .cont-carrito .line {
   backdrop-filter: blur(15px);
   justify-content: center;
   align-items: center;
+  font-size: 16px;
 }
 .modal-carrito .cont-carrito {
   background-color: #ffffff;
-  padding: 20px;
+  padding: 50px;
   border-radius: 10px;
-  width: 500px;
-  max-height: 600px;
+  width: 1200px;
+  max-height: 800px;
   overflow-y: auto;
 }
 .modal-carrito .cont-carrito .cont-cerrar-carrito {
@@ -333,35 +334,94 @@ nav .cont-carrito .line {
 .modal-carrito .cont-carrito .cont-cerrar-carrito h2 {
   font-weight: 700;
 }
-.modal-carrito .cont-carrito ul {
-  margin-top: 20px;
-  list-style: none;
-  padding: 0;
+.modal-carrito .cont-carrito .tabla-carrito {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 50px;
 }
-.modal-carrito .cont-carrito ul li {
+.modal-carrito .cont-carrito .tabla-carrito thead tr {
+  background-color: #f1f1f1;
+  border-bottom: 2px solid #41D9D9;
+}
+.modal-carrito .cont-carrito .tabla-carrito thead tr th {
+  padding: 10px;
+  text-align: center;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+.modal-carrito .cont-carrito .tabla-carrito .items-carrito tr {
+  text-align: center;
+}
+.modal-carrito .cont-carrito .tabla-carrito .items-carrito tr td {
   padding: 10px 0;
-  border-radius: 7px;
 }
-.modal-carrito .cont-carrito p {
-  font-weight: 900;
+.modal-carrito .cont-carrito .tabla-carrito .items-carrito tr td img {
+  width: 35px;
 }
-.modal-carrito .cont-carrito button {
-  margin-top: 40px;
+.modal-carrito .cont-carrito .tabla-carrito .items-carrito tr .contenedor-botones .quitar-cantidad,
+.modal-carrito .cont-carrito .tabla-carrito .items-carrito tr .contenedor-botones .agregar-cantidad {
   border: none;
-  border-radius: 10px;
+  border-radius: 7px;
   background-color: #41D9D9;
-  padding: 10px 15px;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  margin: 0;
   transition: all 0.3s ease-in-out;
 }
-.modal-carrito .cont-carrito button:hover {
+.modal-carrito .cont-carrito .tabla-carrito .items-carrito tr .contenedor-botones .quitar-cantidad:hover,
+.modal-carrito .cont-carrito .tabla-carrito .items-carrito tr .contenedor-botones .agregar-cantidad:hover {
   transform: scale(1.03);
   filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.3019607843));
 }
-.modal-carrito .cont-carrito button {
+.modal-carrito .cont-carrito .tabla-carrito .items-carrito tr .contenedor-botones .quitar-cantidad,
+.modal-carrito .cont-carrito .tabla-carrito .items-carrito tr .contenedor-botones .agregar-cantidad {
   text-decoration: none;
   font-size: 18px;
   font-weight: 700;
   color: #000000;
+}
+.modal-carrito .cont-carrito .tabla-carrito .items-carrito tr .contenedor-botones .cantidad-input {
+  width: 50px;
+  height: 36px;
+  border-radius: 7px;
+  border: 2px solid #41D9D9;
+  font-weight: 700;
+  text-align: center;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.modal-carrito .cont-carrito .tabla-carrito .items-carrito tr .contenedor-botones .eliminar-producto {
+  border: none;
+  border-radius: 7px;
+  background-color: #41D9D9;
+  padding: 5px 16px;
+  transition: all 0.3s ease-in-out;
+  margin-left: 10px;
+}
+.modal-carrito .cont-carrito .tabla-carrito .items-carrito tr .contenedor-botones .eliminar-producto:hover {
+  transform: scale(1.03);
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.3019607843));
+}
+.modal-carrito .cont-carrito .tabla-carrito .items-carrito tr .contenedor-botones .eliminar-producto {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 700;
+  color: #000000;
+}
+.modal-carrito .cont-carrito p {
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.modal-carrito .cont-carrito button {
+  font-size: 24px;
+  font-weight: 700;
+  border: none;
+  border-radius: 7px;
+  background-color: #41D9D9;
+  padding: 5px 16px;
+  transition: all 0.3s ease-in-out;
 }
 
 .modal-compra {
