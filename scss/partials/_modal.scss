@@ -9,13 +9,14 @@
   backdrop-filter: blur(15px);
   justify-content: center;
   align-items: center;
+  font-size: 16px;
 
   .cont-carrito {
     background-color: $color-blanco;
-    padding: 20px;
+    padding: 50px;
     border-radius: $radius-l;
-    width: 500px;
-    max-height: 600px;
+    width: 1200px;
+    max-height: 800px;
     overflow-y: auto;
 
     .cont-cerrar-carrito {
@@ -35,24 +36,111 @@
       }
     }
 
-    ul {
-      margin-top: 20px;
-      list-style: none;
-      padding: 0;
+    .tabla-carrito {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 50px;
 
-      li {
-        padding: 10px 0;
-        border-radius: $radius-m;
+      thead tr {
+        background-color: $color-fondo;
+        border-bottom: 2px solid $color-calipso;
+
+        th {
+          padding: 10px;
+          text-align: center;
+          font-weight: $bold;
+          text-transform: capitalize;
+        }
+      }
+
+      .items-carrito {
+        tr {
+          text-align: center;
+  
+          td {
+            padding: 10px 0;
+
+            img {
+              width: 35px;
+            }
+          }
+  
+          .contenedor-botones {
+  
+            .quitar-cantidad,
+            .agregar-cantidad {
+              border: none;
+              border-radius: $radius-m;
+              background-color: $color-calipso;
+              width: 36px;
+              height: 36px;
+              padding: 0;
+              margin: 0;
+              transition: all 0.3s ease-in-out;
+  
+              &:hover {
+                transform: scale(1.03);
+                filter: drop-shadow(0px 0px 5px #0000004d);
+              }
+  
+              & {
+                text-decoration: none;
+                font-size: $normal;
+                font-weight: $bold;
+                color: $color-negro;
+              }
+            }
+  
+            .cantidad-input {
+              width: 50px;
+              height: 36px;
+              border-radius: $radius-m;
+              border: 2px solid $color-calipso;
+              font-weight: $bold;
+              text-align: center;
+              margin-left: 5px;
+              margin-right: 5px;
+            }
+  
+            .eliminar-producto {
+              border: none;
+              border-radius: $radius-m;
+              background-color: $color-calipso;
+              padding: 5px 16px;
+              transition: all 0.3s ease-in-out;
+              margin-left: 10px;
+  
+              &:hover {
+                transform: scale(1.03);
+                filter: drop-shadow(0px 0px 5px #0000004d);
+              }
+  
+              & {
+                text-decoration: none;
+                font-size: $normal;
+                font-weight: $bold;
+                color: $color-negro;
+              }
+            }
+          }
+        }
       }
     }
 
     p {
-      font-weight: $extra-bold;
+      font-size: $grande;
+      font-weight: $bold;
+      text-transform: uppercase;    
     }
 
     button {
-      margin-top: 40px;
-      @include btn-mas-info;
+      font-size: $grande;
+      font-weight: $bold;
+      border: none;
+      border-radius: $radius-m;
+      background-color: $color-calipso;
+      padding: 5px 16px;
+      transition: all 0.3s ease-in-out;
     }
   }
 }

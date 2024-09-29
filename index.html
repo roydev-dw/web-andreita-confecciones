@@ -94,73 +94,8 @@
 
   <!-- Productos -->
   <section class="cont-productos" id="cont-productos">
-    <div class="cont-productos-card">
-      <div class="productos-card">
-        <img src="./assets/productos/delantal-uno.webp" alt="Delantal con diseño de mascotas y flores">
-        <div class="productos-card-texto">
-          <h2 class="nombre-producto">Delantal perritos y flores</h2>
-          <p class="descipcion-producto">¡Combina estilo y ternura con este delantal de perritos y flores!</p>
-          <p class="precio-producto">$9990</p>
-        </div>
-        <div class="productos-card-btn">
-          <button class="agregar-carrito">Agregar al carrito</button>
-        </div>
-      </div>
-      <div class="productos-card">
-        <img src="./assets/productos/delantal-uno.webp" alt="Delantal con diseño de mascotas y flores">
-        <div class="productos-card-texto">
-          <h2 class="nombre-producto">Delantal perritos y flores</h2>
-          <p class="descipcion-producto">¡Combina estilo y ternura con este delantal de perritos y flores!</p>
-          <p class="precio-producto">$9990</p>
-        </div>
-        <div class="productos-card-btn">
-          <button class="agregar-carrito">Agregar al carrito</button>
-        </div>
-      </div>
-      <div class="productos-card">
-        <img src="./assets/productos/delantal-uno.webp" alt="Delantal con diseño de mascotas y flores">
-        <div class="productos-card-texto">
-          <h2 class="nombre-producto">Delantal perritos y flores</h2>
-          <p class="descipcion-producto">¡Combina estilo y ternura con este delantal de perritos y flores!</p>
-          <p class="precio-producto">$9990</p>
-        </div>
-        <div class="productos-card-btn">
-          <button class="agregar-carrito">Agregar al carrito</button>
-        </div>
-      </div>
-      <div class="productos-card">
-        <img src="./assets/productos/delantal-uno.webp" alt="Delantal con diseño de mascotas y flores">
-        <div class="productos-card-texto">
-          <h2 class="nombre-producto">Delantal perritos y flores</h2>
-          <p class="descipcion-producto">¡Combina estilo y ternura con este delantal de perritos y flores!</p>
-          <p class="precio-producto">$9990</p>
-        </div>
-        <div class="productos-card-btn">
-          <button class="agregar-carrito">Agregar al carrito</button>
-        </div>
-      </div>
-      <div class="productos-card">
-        <img src="./assets/productos/delantal-uno.webp" alt="Delantal con diseño de mascotas y flores">
-        <div class="productos-card-texto">
-          <h2 class="nombre-producto">Delantal perritos y flores</h2>
-          <p class="descipcion-producto">¡Combina estilo y ternura con este delantal de perritos y flores!</p>
-          <p class="precio-producto">$9990</p>
-        </div>
-        <div class="productos-card-btn">
-          <button class="agregar-carrito">Agregar al carrito</button>
-        </div>
-      </div>
-      <div class="productos-card">
-        <img src="./assets/productos/delantal-uno.webp" alt="Delantal con diseño de mascotas y flores">
-        <div class="productos-card-texto">
-          <h2 class="nombre-producto">Delantal perritos y flores</h2>
-          <p class="descipcion-producto">¡Combina estilo y ternura con este delantal de perritos y flores!</p>
-          <p class="precio-producto">$9990</p>
-        </div>
-        <div class="productos-card-btn">
-          <button class="agregar-carrito">Agregar al carrito</button>
-        </div>
-      </div>
+    <div class="cont-productos-card" id="cont-productos-card">
+      <!-- Se crean las tarjetas de forma dinámica -->
     </div>
   </section>
 
@@ -170,9 +105,22 @@
         <h2>Carrito de compras</h2>
         <span id="cerrar-carrito" class="cerrar-carrito">&times;</span>
       </div>
-      <ul id="items-carrito"></ul>
-      <p id="total">total: $0</p>
-      <button id="verificar">Finalizar compra</button>
+      
+      <table class="tabla-carrito">
+        <thead>
+          <tr>
+            <th>Imagen</th>
+            <th>ID</th>
+            <th>Nombre del producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+          </tr>
+        </thead>
+        <tbody class="items-carrito" id="items-carrito"></tbody>
+      </table>
+      
+      <p id="total">Total: $0</p>
+      <button id="verificar" class="verificar">Finalizar compra</button>
     </div>
   </section>
 
