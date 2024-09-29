@@ -236,6 +236,8 @@ nav .cont-carrito .line {
 }
 .cont-productos .productos-card img {
   height: 400px;
+  width: 300px;
+  object-fit: contain;
 }
 .cont-productos .productos-card .productos-card-texto {
   display: flex;

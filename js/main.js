@@ -3,45 +3,45 @@
 const productos = [
   {
     id: 1,
-    nombre: "Delantal perritos y flores 1",
+    nombre: "Delantal perritos y flores",
     descripcion: "¡Combina estilo y ternura con este delantal de perritos y flores!",
     precio: 17990,
-    imagen: "../assets/productos/delantal-uno.webp",
+    imagen: "./assets/productos/delantal-uno.webp",
   },
   {
     id: 2,
-    nombre: "Bandana Rosada 2",
+    nombre: "Bandana Rosada",
     descripcion: "Una bandana rosada ideal para darle un toque chic a tu look.",
     precio: 6990,
-    imagen: "../assets/productos/bandana-rosada.webp",
+    imagen: "./assets/productos/bandana-rosada.webp",
   },
   {
     id: 3,
-    nombre: "Delantal Gatos 3",
+    nombre: "Delantal Gatos",
     descripcion: "Delantal divertido con estampado de gatos, perfecto para los amantes de los felinos.",
     precio: 16990,
-    imagen: "../assets/productos/delantal-gatos.webp",
+    imagen: "./assets/productos/delantal-gatos.webp",
   },
   {
     id: 4,
-    nombre: "Delantal Mariposas 4",
+    nombre: "Delantal Mariposas",
     descripcion: "Este delantal con mariposas es perfecto para cocinar con estilo y elegancia.",
     precio: 13990,
-    imagen: "../assets/productos/delantal-mariposas.webp",
+    imagen: "./assets/productos/delantal-mariposas.webp",
   },
   {
     id: 5,
-    nombre: "Polerón Rosado 5",
+    nombre: "Polerón Rosado",
     descripcion: "Polerón suave y cómodo, ideal para mantenerte abrigado y a la moda.",
     precio: 24990,
-    imagen: "../assets/productos/poleron-rosado.webp",
+    imagen: "./assets/productos/poleron-rosado.webp",
   },
   {
     id: 6,
-    nombre: "Coquettes Animal Print 6",
+    nombre: "Coquettes Animal Print",
     descripcion: "Un par de coquettes con estampado animal print, perfectos para un look moderno.",
     precio: 9990,
-    imagen: "../assets/productos/coquette-animalprint.webp",
+    imagen: "./assets/productos/coquette-animalprint.webp",
   }
 ];
 
