@@ -236,11 +236,14 @@ nav .cont-carrito .line {
 }
 .cont-productos .productos-card img {
   height: 400px;
+  width: 100%;
+  object-fit: cover;
 }
 .cont-productos .productos-card .productos-card-texto {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-grow: 1;
 }
 .cont-productos .productos-card .productos-card-texto h2 {
   width: 300px;
@@ -254,6 +257,7 @@ nav .cont-carrito .line {
 .cont-productos .productos-card .productos-card-texto p {
   width: 300px;
   text-align: center;
+  margin-top: auto;
 }
 .cont-productos .productos-card .productos-card-texto button {
   border: none;
@@ -271,6 +275,9 @@ nav .cont-carrito .line {
   font-size: 18px;
   font-weight: 700;
   color: #000000;
+}
+.cont-productos .productos-card .productos-card-btn {
+  margin-top: auto;
 }
 .cont-productos .productos-card .productos-card-btn button {
   border: none;

@@ -1,47 +1,50 @@
+/* Declaración de variables */
+
 const productos = [
   {
     id: 1,
     nombre: "Delantal perritos y flores 1",
     descripcion: "¡Combina estilo y ternura con este delantal de perritos y flores!",
-    precio: 9990,
-    imagen: "./assets/productos/delantal-uno.webp",
+    precio: 17990,
+    imagen: "../assets/productos/delantal-uno.webp",
   },
   {
     id: 2,
-    nombre: "Delantal perritos y flores 2",
-    descripcion: "¡Combina estilo y ternura con este delantal de perritos y flores!",
-    precio: 9990,
-    imagen: "./assets/productos/delantal-uno.webp",
+    nombre: "Bandana Rosada 2",
+    descripcion: "Una bandana rosada ideal para darle un toque chic a tu look.",
+    precio: 6990,
+    imagen: "../assets/productos/bandana-rosada.webp",
   },
   {
     id: 3,
-    nombre: "Delantal perritos y flores 3",
-    descripcion: "¡Combina estilo y ternura con este delantal de perritos y flores!",
-    precio: 9990,
-    imagen: "./assets/productos/delantal-uno.webp",
+    nombre: "Delantal Gatos 3",
+    descripcion: "Delantal divertido con estampado de gatos, perfecto para los amantes de los felinos.",
+    precio: 16990,
+    imagen: "../assets/productos/delantal-gatos.webp",
   },
   {
     id: 4,
-    nombre: "Delantal perritos y flores 4",
-    descripcion: "¡Combina estilo y ternura con este delantal de perritos y flores!",
-    precio: 9990,
-    imagen: "./assets/productos/delantal-uno.webp",
+    nombre: "Delantal Mariposas 4",
+    descripcion: "Este delantal con mariposas es perfecto para cocinar con estilo y elegancia.",
+    precio: 13990,
+    imagen: "../assets/productos/delantal-mariposas.webp",
   },
   {
     id: 5,
-    nombre: "Delantal perritos y flores 5",
-    descripcion: "¡Combina estilo y ternura con este delantal de perritos y flores!",
-    precio: 9990,
-    imagen: "./assets/productos/delantal-uno.webp",
+    nombre: "Polerón Rosado 5",
+    descripcion: "Polerón suave y cómodo, ideal para mantenerte abrigado y a la moda.",
+    precio: 24990,
+    imagen: "../assets/productos/poleron-rosado.webp",
   },
   {
     id: 6,
-    nombre: "Delantal perritos y flores 6",
-    descripcion: "¡Combina estilo y ternura con este delantal de perritos y flores!",
+    nombre: "Coquettes Animal Print 6",
+    descripcion: "Un par de coquettes con estampado animal print, perfectos para un look moderno.",
     precio: 9990,
-    imagen: "./assets/productos/delantal-uno.webp",
+    imagen: "../assets/productos/coquette-animalprint.webp",
   }
 ];
+
 
 let carrito = [];
 const contenedorProductos = document.getElementById('cont-productos-card');
@@ -54,6 +57,8 @@ const totalCarrito = document.getElementById('total');
 const modalCompra = document.getElementById('modal-compra');
 const cerrarCompra = document.getElementById('cerrar-compra');
 
+/* Funciones */
+
 function mostarProductos() {
   productos.forEach(({ id, nombre, descripcion, precio, imagen }) => {
     contenedorProductos.innerHTML += `
@@ -62,7 +67,7 @@ function mostarProductos() {
         <div class="productos-card-texto">
           <h2 class="nombre-producto">${nombre}</h2>
           <p class="descripcion-producto">${descripcion}</p>
-          <p class="precio-producto">$${precio}</p>
+          <p class="precio-producto">$${precio.toLocaleString('es-CL', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</p>
         </div>
         <div class="productos-card-btn">
           <button class="agregar-carrito" id="${id}">Agregar al carrito</button>
@@ -246,6 +251,8 @@ function mostrarNotificacion() {
     }, 1000);
   }, 1500);
 }
+
+/* Eventos */
 
 document.querySelector('#icono-carrito').parentElement.addEventListener('click', (e) => {
   e.preventDefault();
