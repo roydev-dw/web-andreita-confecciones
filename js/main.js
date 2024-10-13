@@ -1,51 +1,6 @@
 /* Declaración de variables */
 
-const productos = [
-  {
-    id: 1,
-    nombre: "Delantal perritos y flores",
-    descripcion: "¡Combina estilo y ternura con este delantal de perritos y flores!",
-    precio: 17990,
-    imagen: "./assets/productos/delantal-uno.webp",
-  },
-  {
-    id: 2,
-    nombre: "Bandana Rosada",
-    descripcion: "Una bandana rosada ideal para darle un toque chic a tu look.",
-    precio: 6990,
-    imagen: "./assets/productos/bandana-rosada.webp",
-  },
-  {
-    id: 3,
-    nombre: "Delantal Gatos",
-    descripcion: "Delantal divertido con estampado de gatos, perfecto para los amantes de los felinos.",
-    precio: 16990,
-    imagen: "./assets/productos/delantal-gatos.webp",
-  },
-  {
-    id: 4,
-    nombre: "Delantal Mariposas",
-    descripcion: "Este delantal con mariposas es perfecto para cocinar con estilo y elegancia.",
-    precio: 13990,
-    imagen: "./assets/productos/delantal-mariposas.webp",
-  },
-  {
-    id: 5,
-    nombre: "Polerón Rosado",
-    descripcion: "Polerón suave y cómodo, ideal para mantenerte abrigado y a la moda.",
-    precio: 24990,
-    imagen: "./assets/productos/poleron-rosado.webp",
-  },
-  {
-    id: 6,
-    nombre: "Coquettes Animal Print",
-    descripcion: "Un par de coquettes con estampado animal print, perfectos para un look moderno.",
-    precio: 9990,
-    imagen: "./assets/productos/coquette-animalprint.webp",
-  }
-];
-
-
+let productos = [];
 let carrito = [];
 const contenedorProductos = document.getElementById('cont-productos-card');
 const contadorCarrito = document.getElementById('contador-carrito');
@@ -56,10 +11,35 @@ const botonVerificar = document.getElementById('verificar');
 const totalCarrito = document.getElementById('total');
 const modalCompra = document.getElementById('modal-compra');
 const cerrarCompra = document.getElementById('cerrar-compra');
+const formularioNoticias = document.getElementById('formulario-noticias');
 
 /* Funciones */
 
-function mostarProductos() {
+async function obtenerProductos() {
+  try {
+    const response = await fetch('https://run.mocky.io/v3/65980541-56f7-47d5-b688-faf251c8932f');
+    if (!response.ok) {
+      throw new Error('Error al cargar los productos. Codigo de respuesta: ' + response.status);
+    }
+    productos = await response.json();
+    mostrarProductos();
+  } catch (error) {
+    mostrarError(error.message);
+  }
+}
+
+function mostrarError(mensaje) {
+  Swal.fire({
+    icon: 'error',
+    title: '¡Error!',
+    text: 'Ha ocurrido un error inesperado. Por favor, intenta de nuevo más tarde. ' + mensaje,
+    confirmButtonText: 'Aceptar',
+  });
+}
+
+function mostrarProductos() {
+  contenedorProductos.innerHTML = '';
+
   productos.forEach(({ id, nombre, descripcion, precio, imagen }) => {
     contenedorProductos.innerHTML += `
       <div class="productos-card" id="producto-${id}">
@@ -79,7 +59,8 @@ function mostarProductos() {
   const botonAgregar = document.querySelectorAll('.agregar-carrito');
 
   botonAgregar.forEach(boton => {
-    boton.addEventListener('click', function () {
+    boton.addEventListener('click', function (e) {
+      e.preventDefault();
       const idProducto = parseInt(this.id);
       const producto = productos.find(producto => producto.id === idProducto);
 
@@ -93,7 +74,7 @@ function mostarProductos() {
 
         actualizarContadorCarrito();
         guardarCarrito();
-        mostrarNotificacion();
+        notificacionAgregar();
       }
     });
   });
@@ -126,12 +107,16 @@ function displayCarrito() {
   itemsCarrito.innerHTML = '';
 
   carrito.forEach((item) => {
-    itemsCarrito.innerHTML += `
+    const fila = document.getElementById(`item-${item.id}`)
+    if (fila) {
+      fila.querySelector('.cantidad-input').value = item.cantidad;
+    } else {
+      itemsCarrito.innerHTML += ` 
       <tr id="item-${item.id}" class="carrito-item">
         <td><img src="${item.imagen}" alt="${item.nombre}"></td>
         <td>${item.id}</td>
         <td>${item.nombre}</td>
-        <td>$${item.precio}</td>
+        <td>$${item.precio.toLocaleString('es-CL', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</td>
         <td class="contenedor-botones">
           <button class="quitar-cantidad" data-id="${item.id}">-</button>
           <input type="text" min="1" class="cantidad-input" id="cantidad-${item.id}" value="${item.cantidad}">
@@ -140,10 +125,12 @@ function displayCarrito() {
         </td>
       </tr>
     `;
+    }
   });
 
   document.querySelectorAll('.cantidad-input').forEach(input => {
-    input.addEventListener('change', function () {
+    input.addEventListener('change', function (e) {
+      e.preventDefault();
       const id = parseInt(this.id.split('-')[1]);
       const nuevaCantidad = parseInt(this.value);
       actualizarCantidad(id, nuevaCantidad);
@@ -151,21 +138,24 @@ function displayCarrito() {
   });
 
   document.querySelectorAll('.quitar-cantidad').forEach(boton => {
-    boton.addEventListener('click', function () {
+    boton.addEventListener('click', function (e) {
+      e.preventDefault();
       const id = parseInt(this.getAttribute('data-id'));
       quitarCantidad(id);
     });
   });
 
   document.querySelectorAll('.agregar-cantidad').forEach(boton => {
-    boton.addEventListener('click', function () {
+    boton.addEventListener('click', function (e) {
+      e.preventDefault();
       const id = parseInt(this.getAttribute('data-id'));
       agregarCantidad(id);
     });
   });
 
   document.querySelectorAll('.eliminar-producto').forEach(boton => {
-    boton.addEventListener('click', function () {
+    boton.addEventListener('click', function (e) {
+      e.preventDefault();
       const id = parseInt(this.getAttribute('data-id'));
       eliminarProducto(id);
     });
@@ -216,7 +206,8 @@ function quitarCantidad(id) {
 
 function actualizarTotal() {
   const total = carrito.reduce((acc, item) => acc + (item.precio * item.cantidad), 0);
-  totalCarrito.textContent = `Total: $${total}`;
+  const totalFormateado = total.toLocaleString('es-CL', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+  totalCarrito.textContent = `Total: $${totalFormateado}`;
 }
 
 function actualizarContadorCarrito() {
@@ -238,18 +229,71 @@ function cargarCarrito() {
   }
 }
 
-function mostrarNotificacion() {
-  const modalAgregado = document.getElementById('modal-agregado-carrito');
-  modalAgregado.style.display = 'block';
-  modalAgregado.style.opacity = '1';
+function notificacionAgregar() {
+  Swal.fire({
+    icon: 'success',
+    text: 'Agregado al carrito.',
+    showConfirmButton: false,
+    timer: 1500,
+    width: '400px',
+    customClass: {
+      icon: 'icono-sweet'
+    },
+    showClass: {
+      popup: `
+        animate__animated
+        animate__tada
+      `
+    },
+    hideClass: {
+      popup: `
+        animate__animated
+        animate__fadeOut
+      `
+    }
+  });
+};
 
-  setTimeout(function () {
-    modalAgregado.style.opacity = '0';
-    setTimeout(() => {
-      modalAgregado.style.display = 'none';
-      modalAgregado.style.opacity = '1';
-    }, 1000);
-  }, 1500);
+function notificacionSuscripcion() {
+  Swal.fire({
+    icon: 'success',
+    text: 'Se ha suscrito con exito.',
+    showConfirmButton: false,
+    timer: 1500,
+    width: '400px',
+    customClass: {
+      icon: 'icono-sweet'
+    },
+    showClass: {
+      popup: `
+        animate__animated
+        animate__tada
+      `
+    },
+    hideClass: {
+      popup: `
+        animate__animated
+        animate__fadeOut
+      `
+    }
+  });
+};
+
+function mostrarFormularioNoticias() {
+  formularioNoticias.innerHTML = `
+      <p>Recibe nuestro boletin informativo, con noticias, descuentos, tips y demás.</p>
+      <div class="cont-entrada">
+        <i class="bi bi-envelope-at-fill"></i>
+        <input type="email" name="" value="" placeholder="Ingresa tu correo electrónico" required>
+        <button type="submit" name="boton">Suscríbete</button>
+      </div>
+  `;
+
+  document.querySelector('.formulario-noticias').addEventListener('submit', (e) => {
+    e.preventDefault();
+    notificacionSuscripcion();
+    e.target.reset();
+  });
 }
 
 /* Eventos */
@@ -278,22 +322,6 @@ cerrarCompra.addEventListener('click', () => {
   modalCompra.style.display = 'none';
 });
 
-document.querySelector('.formulario-noticias').addEventListener('submit', (e) => {
-  e.preventDefault();
-  const modalSuscripcion = document.getElementById('modal-suscripcion');
-
-  modalSuscripcion.style.display = 'block';
-
-  setTimeout(() => {
-    modalSuscripcion.style.opacity = '0';
-    setTimeout(() => {
-      modalSuscripcion.style.display = 'none';
-      modalSuscripcion.style.opacity = '1';
-    }, 1000);
-  }, 1500);
-
-  e.target.reset();
-});
-
-mostarProductos();
+obtenerProductos();
 cargarCarrito();
+mostrarFormularioNoticias();

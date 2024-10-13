@@ -59,15 +59,26 @@ nav {
     justify-content: end;
 
     a {
+      position: relative;
+      text-decoration: none;
+
       .bi {
         font-size: 50px;
         color: $color-negro;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       .contador-carrito {
         position: absolute;
-        top: 45px;
-        right: 98px;
+        top: 12px;
+        right: 14px;
+        display: flex;
+        width: 20px;
+        height: 20px;
+        justify-content: center;
+        align-items: center;
         color: $color-blanco;
         font-weight: $extra-bold;
       }
