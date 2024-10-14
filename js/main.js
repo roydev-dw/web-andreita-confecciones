@@ -317,18 +317,20 @@ function mostrarFormularioNoticias() {
 }
 
 function mostrarConfirmacionPedido() {
+  const totalSinIVA = carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
+  const iva = totalSinIVA * TASA_IVA;
+  const totalConIVA = totalSinIVA + iva;
+
   const resumen = carrito
     .map(
       (item) => `
       <div class="resumen">
         <span>${item.nombre}</span>
         <span>${item.cantidad}</span>
-        <span>$${(item.precio * item.cantidad).toLocaleString('es-CL')}</span>
+        <span>$${(item.precio * item.cantidad).toLocaleString('es-CL', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</span>
       </div>`
     )
     .join('');
-  const total = carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
-  const totalFormateado = total.toLocaleString('es-CL', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
 
   Swal.fire({
     title: 'Resumen de tu compra',
@@ -336,7 +338,7 @@ function mostrarConfirmacionPedido() {
       <div class="linea"></div>
       <div>${resumen}</div>
       <div class="linea"></div>
-      <p>Total a pagar: $${totalFormateado}</p>
+      <p>Total a pagar: $${totalConIVA.toLocaleString('es-CL', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</p>
     `,
     showCancelButton: true,
     cancelButtonText: 'Cancelar',
@@ -376,7 +378,7 @@ function mostrarConfirmacionPedido() {
         <div class="campo-formulario">
           <div class="campo-entrada">
             <i class="bi bi-envelope"></i>
-            <input type="email" id="correo-envio" class="input-formulario" placeholder="Correo">
+            <input type="email" id="correo-envio" name="email" class="input-formulario" placeholder="Correo">
           </div>
         </div>
         <div class="campo-formulario">
