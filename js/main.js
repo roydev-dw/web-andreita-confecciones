@@ -1,20 +1,21 @@
 /* Declaración de variables */
-
+const TASA_IVA = 0.19;
 let productos = [];
 let carrito = [];
+
 const contenedorProductos = document.getElementById('cont-productos-card');
 const contadorCarrito = document.getElementById('contador-carrito');
 const itemsCarrito = document.getElementById('items-carrito');
 const modalCarrito = document.getElementById('modal-carrito');
 const cerrarCarrito = document.getElementById('cerrar-carrito');
-const botonVerificar = document.getElementById('verificar');
+const botonContinuar = document.getElementById('boton-continuar');
+const subTotalCarrito = document.getElementById('sub-total');
+const IVACarrito = document.getElementById('IVA');
 const totalCarrito = document.getElementById('total');
-const modalCompra = document.getElementById('modal-compra');
 const cerrarCompra = document.getElementById('cerrar-compra');
 const formularioNoticias = document.getElementById('formulario-noticias');
 
 /* Funciones */
-
 async function obtenerProductos() {
   try {
     const response = await fetch('https://run.mocky.io/v3/65980541-56f7-47d5-b688-faf251c8932f');
@@ -47,7 +48,10 @@ function mostrarProductos() {
         <div class="productos-card-texto">
           <h2 class="nombre-producto">${nombre}</h2>
           <p class="descripcion-producto">${descripcion}</p>
-          <p class="precio-producto">$${precio.toLocaleString('es-CL', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</p>
+          <p class="precio-producto">$${precio.toLocaleString('es-CL', {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0,
+          })}</p>
         </div>
         <div class="productos-card-btn">
           <button class="agregar-carrito" id="${id}">Agregar al carrito</button>
@@ -58,20 +62,19 @@ function mostrarProductos() {
 
   const botonAgregar = document.querySelectorAll('.agregar-carrito');
 
-  botonAgregar.forEach(boton => {
+  botonAgregar.forEach((boton) => {
     boton.addEventListener('click', function (e) {
       e.preventDefault();
       const idProducto = parseInt(this.id);
-      const producto = productos.find(producto => producto.id === idProducto);
+      const producto = productos.find((producto) => producto.id === idProducto);
 
       if (producto) {
-        const productoEnCarrito = carrito.find(item => item.id === producto.id);
+        const productoEnCarrito = carrito.find((item) => item.id === producto.id);
         if (productoEnCarrito) {
           productoEnCarrito.cantidad++;
         } else {
           carrito.push({ ...producto, cantidad: 1 });
         }
-
         actualizarContadorCarrito();
         guardarCarrito();
         notificacionAgregar();
@@ -81,14 +84,13 @@ function mostrarProductos() {
 }
 
 function agregarAlCarrito(producto) {
-  const productoEnCarrito = carrito.find(item => item.id === producto.id);
+  const productoEnCarrito = carrito.find((item) => item.id === producto.id);
 
   if (productoEnCarrito) {
     productoEnCarrito.cantidad++;
   } else {
     carrito.push({ ...producto, cantidad: 1 });
   }
-
   actualizarContadorCarrito();
   guardarCarrito();
   displayCarrito();
@@ -96,7 +98,7 @@ function agregarAlCarrito(producto) {
 }
 
 function eliminarProducto(id) {
-  carrito = carrito.filter(item => item.id !== id);
+  carrito = carrito.filter((item) => item.id !== id);
   guardarCarrito();
   displayCarrito();
   actualizarTotal();
@@ -107,7 +109,7 @@ function displayCarrito() {
   itemsCarrito.innerHTML = '';
 
   carrito.forEach((item) => {
-    const fila = document.getElementById(`item-${item.id}`)
+    const fila = document.getElementById(`item-${item.id}`);
     if (fila) {
       fila.querySelector('.cantidad-input').value = item.cantidad;
     } else {
@@ -116,7 +118,10 @@ function displayCarrito() {
         <td><img src="${item.imagen}" alt="${item.nombre}"></td>
         <td>${item.id}</td>
         <td>${item.nombre}</td>
-        <td>$${item.precio.toLocaleString('es-CL', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</td>
+        <td>$${item.precio.toLocaleString('es-CL', {
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0,
+        })}</td>
         <td class="contenedor-botones">
           <button class="quitar-cantidad" data-id="${item.id}">-</button>
           <input type="text" min="1" class="cantidad-input" id="cantidad-${item.id}" value="${item.cantidad}">
@@ -128,7 +133,7 @@ function displayCarrito() {
     }
   });
 
-  document.querySelectorAll('.cantidad-input').forEach(input => {
+  document.querySelectorAll('.cantidad-input').forEach((input) => {
     input.addEventListener('change', function (e) {
       e.preventDefault();
       const id = parseInt(this.id.split('-')[1]);
@@ -137,7 +142,7 @@ function displayCarrito() {
     });
   });
 
-  document.querySelectorAll('.quitar-cantidad').forEach(boton => {
+  document.querySelectorAll('.quitar-cantidad').forEach((boton) => {
     boton.addEventListener('click', function (e) {
       e.preventDefault();
       const id = parseInt(this.getAttribute('data-id'));
@@ -145,7 +150,7 @@ function displayCarrito() {
     });
   });
 
-  document.querySelectorAll('.agregar-cantidad').forEach(boton => {
+  document.querySelectorAll('.agregar-cantidad').forEach((boton) => {
     boton.addEventListener('click', function (e) {
       e.preventDefault();
       const id = parseInt(this.getAttribute('data-id'));
@@ -153,25 +158,23 @@ function displayCarrito() {
     });
   });
 
-  document.querySelectorAll('.eliminar-producto').forEach(boton => {
+  document.querySelectorAll('.eliminar-producto').forEach((boton) => {
     boton.addEventListener('click', function (e) {
       e.preventDefault();
       const id = parseInt(this.getAttribute('data-id'));
       eliminarProducto(id);
     });
   });
-
   actualizarContadorCarrito();
   actualizarTotal();
 }
 
 function actualizarCantidad(id, nuevaCantidad) {
-  const productoEnCarrito = carrito.find(item => item.id === id);
+  const productoEnCarrito = carrito.find((item) => item.id === id);
 
   if (productoEnCarrito) {
     const cantidadActualizada = Math.max(1, nuevaCantidad);
     productoEnCarrito.cantidad = cantidadActualizada;
-
     actualizarContadorCarrito();
     actualizarTotal();
     guardarCarrito();
@@ -180,7 +183,7 @@ function actualizarCantidad(id, nuevaCantidad) {
 }
 
 function agregarCantidad(id) {
-  const productoEnCarrito = carrito.find(item => item.id === id);
+  const productoEnCarrito = carrito.find((item) => item.id === id);
 
   if (productoEnCarrito) {
     productoEnCarrito.cantidad += 1;
@@ -192,11 +195,10 @@ function agregarCantidad(id) {
 }
 
 function quitarCantidad(id) {
-  const productoEnCarrito = carrito.find(item => item.id === id);
+  const productoEnCarrito = carrito.find((item) => item.id === id);
 
   if (productoEnCarrito && productoEnCarrito.cantidad > 1) {
     productoEnCarrito.cantidad -= 1;
-
     actualizarContadorCarrito();
     guardarCarrito();
     displayCarrito();
@@ -205,9 +207,14 @@ function quitarCantidad(id) {
 }
 
 function actualizarTotal() {
-  const total = carrito.reduce((acc, item) => acc + (item.precio * item.cantidad), 0);
-  const totalFormateado = total.toLocaleString('es-CL', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
-  totalCarrito.textContent = `Total: $${totalFormateado}`;
+  const totalSinIVA = carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
+  const iva = totalSinIVA * TASA_IVA;
+  const totalConIVA = totalSinIVA + iva;
+  const totalFormateado = totalConIVA.toLocaleString('es-CL', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+
+  subTotalCarrito.innerHTML = `Sub total: $${totalSinIVA.toLocaleString('es-CL', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`;
+  IVACarrito.innerHTML = `IVA: $${iva.toLocaleString('es-CL', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`;
+  totalCarrito.innerHTML = `Total: $${totalFormateado}`;
 }
 
 function actualizarContadorCarrito() {
@@ -237,22 +244,23 @@ function notificacionAgregar() {
     timer: 1500,
     width: '400px',
     customClass: {
-      icon: 'icono-sweet'
+      popup: 'notificacion',
+      icon: 'icono-sweet',
     },
     showClass: {
       popup: `
         animate__animated
         animate__tada
-      `
+      `,
     },
     hideClass: {
       popup: `
         animate__animated
         animate__fadeOut
-      `
-    }
+      `,
+    },
   });
-};
+}
 
 function notificacionSuscripcion() {
   Swal.fire({
@@ -262,41 +270,255 @@ function notificacionSuscripcion() {
     timer: 1500,
     width: '400px',
     customClass: {
-      icon: 'icono-sweet'
+      popup: 'notificacion',
+      icon: 'icono-sweet',
     },
     showClass: {
       popup: `
         animate__animated
         animate__tada
-      `
+      `,
     },
     hideClass: {
       popup: `
         animate__animated
         animate__fadeOut
-      `
-    }
+      `,
+    },
   });
-};
+}
 
 function mostrarFormularioNoticias() {
   formularioNoticias.innerHTML = `
-      <p>Recibe nuestro boletin informativo, con noticias, descuentos, tips y demás.</p>
-      <div class="cont-entrada">
-        <i class="bi bi-envelope-at-fill"></i>
-        <input type="email" name="" value="" placeholder="Ingresa tu correo electrónico" required>
-        <button type="submit" name="boton">Suscríbete</button>
-      </div>
-  `;
+  <p>Recibe nuestro boletin informativo, con noticias, descuentos, tips y demás.</p>
+  <div class="cont-entrada">
+    <i class="bi bi-envelope-at-fill"></i>
+    <input type="email" id="correo" placeholder="Ingresa tu correo electrónico" required>
+    <button type="submit" name="boton">Suscríbete</button>
+  </div>`;
 
   document.querySelector('.formulario-noticias').addEventListener('submit', (e) => {
     e.preventDefault();
-    notificacionSuscripcion();
+
+    const correo = document.getElementById('correo').value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(correo)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Por favor, ingrese un correo electrónico válido.',
+      });
+      return;
+    }
+
+    notificacionSuscripcion(correo);
     e.target.reset();
   });
 }
 
+function mostrarConfirmacionPedido() {
+  const resumen = carrito
+    .map(
+      (item) => `
+      <div class="resumen">
+        <span>${item.nombre}</span>
+        <span>${item.cantidad}</span>
+        <span>$${(item.precio * item.cantidad).toLocaleString('es-CL')}</span>
+      </div>`
+    )
+    .join('');
+  const total = carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
+  const totalFormateado = total.toLocaleString('es-CL', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+
+  Swal.fire({
+    title: 'Resumen de tu compra',
+    html: `
+      <div class="linea"></div>
+      <div>${resumen}</div>
+      <div class="linea"></div>
+      <p>Total a pagar: $${totalFormateado}</p>
+    `,
+    showCancelButton: true,
+    cancelButtonText: 'Cancelar',
+    confirmButtonText: 'Continuar',
+    reverseButtons: true,
+    customClass: {
+      popup: 'modal-resume',
+      cancelButton: 'boton-cancelar',
+      confirmButton: 'boton-confirmar',
+      title: 'titulo',
+    },
+    showClass: {
+      popup: '',
+    },
+    hideClass: {
+      popup: '',
+    },
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const formulario = document.createElement('div');
+      formulario.className = 'formulario-envio';
+      formulario.innerHTML = `
+      <h3 class="titulo-formulario">Ingresa tus datos para finalizar la compra</h3>
+      <form id="formularioCompra" class="formulario-compra">
+        <div class="campo-formulario">
+          <div class="campo-entrada">
+            <i class="bi bi-person"></i>
+            <input type="text" id="nombre" class="input-formulario" placeholder="Nombre">
+          </div>
+        </div>
+        <div class="campo-formulario">
+          <div class="campo-entrada">
+            <i class="bi bi-card-text"></i>
+            <input type="text" id="rut" class="input-formulario" placeholder="RUT o DNI">
+          </div>
+        </div>
+        <div class="campo-formulario">
+          <div class="campo-entrada">
+            <i class="bi bi-envelope"></i>
+            <input type="email" id="correo" class="input-formulario" placeholder="Correo">
+          </div>
+        </div>
+        <div class="campo-formulario">
+          <div class="campo-entrada">
+            <i class="bi bi-telephone"></i>
+            <input type="tel" id="telefono" class="input-formulario" placeholder="Teléfono">
+          </div>
+        </div>
+        <div class="campo-formulario">
+          <div class="campo-entrada">
+            <i class="bi bi-house"></i>
+            <input type="text" id="direccion" class="input-formulario" placeholder="Dirección de envío">
+          </div>
+        </div>
+      </form>
+      `;
+
+      Swal.fire({
+        title: 'Datos de Envio',
+        html: formulario,
+        showCloseButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Finalizar',
+        cancelButtonText: 'Cancelar',
+        reverseButtons: true,
+        focusConfirm: false,
+        customClass: {
+          popup: 'modal-formulario-envio',
+          title: 'titulo-formulario-envio',
+          confirmButton: 'boton-confirmar',
+          cancelButton: 'boton-cancelar',
+        },
+        showClass: {
+          popup: '',
+        },
+        hideClass: {
+          popup: '',
+        },
+        preConfirm: () => {
+          const nombre = document.getElementById('nombre').value;
+          const rut = document.getElementById('rut').value;
+          const correo = document.getElementById('correo').value;
+          const telefono = document.getElementById('telefono').value;
+          const direccion = document.getElementById('direccion').value;
+
+          if (!nombre || !rut || !correo || !telefono || !direccion) {
+            Swal.showValidationMessage(`Por favor, complete todos los campos.`);
+            return false;
+          }
+
+          if (!/^[a-zA-Z]+$/.test(nombre)) {
+            Swal.showValidationMessage(`Por favor, ingrese un nombre válido (solo letras).`);
+            return false;
+          }
+
+          const rutRegex = /^(?:\d{1,3}(?:\.\d{3})*|\d{1,8})-?[0-9Kk]$/;
+          if (!rutRegex.test(rut)) {
+            Swal.showValidationMessage(`Por favor, ingrese un RUT válido.`);
+            return false;
+          }
+
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(correo)) {
+            Swal.showValidationMessage(`Por favor, ingrese un correo electrónico válido.`);
+            return false;
+          }
+
+          if (!/^\+?\d{7,14}$/.test(telefono)) {
+            Swal.showValidationMessage(`Por favor, ingrese un número de teléfono válido.`);
+            return false;
+          }
+
+          return {
+            nombre,
+            rut,
+            correo,
+            telefono,
+            direccion,
+          };
+        },
+      }).then((result) => {
+        if (result.isConfirmed) {
+          finalizarCompra();
+        }
+      });
+    }
+  });
+}
+
+function finalizarCompra() {
+  carrito = [];
+  guardarCarrito();
+  actualizarContadorCarrito();
+  actualizarTotal();
+  Swal.fire({
+    icon: 'success',
+    title: '¡Compra realizada!',
+    text: 'Tu compra ha sido confirmada. En breve recibiras un correo con la información sobre tu pedido.',
+    showConfirmButton: false,
+    timer: 5000,
+    customClass: {
+      popup: `modal-compra-finalizada 
+              animate__animated
+              animate__bounceIn`,
+      icon: 'icono-sweet',
+    },
+  });
+}
+
 /* Eventos */
+botonContinuar.addEventListener('click', () => {
+  if (carrito.length === 0) {
+    Swal.fire({
+      icon: 'warning',
+      title: 'Carrito vacío',
+      text: 'Por favor, agregue un producto al carrito',
+      showConfirmButton: true,
+      timer: 2500,
+      width: '400px',
+      customClass: {
+        popup: 'modal-carrito-vacio',
+        icon: 'icono-sweet',
+        confirmButton: 'boton-ok',
+      },
+      showClass: {
+        popup: `
+        animate__animated
+        animate__tada
+      `,
+      },
+      hideClass: {
+        popup: `
+        animate__animated
+        animate__fadeOut
+      `,
+      },
+    });
+  } else {
+    modalCarrito.style.display = 'none';
+    mostrarConfirmacionPedido();
+  }
+});
 
 document.querySelector('#icono-carrito').parentElement.addEventListener('click', (e) => {
   e.preventDefault();
@@ -307,19 +529,6 @@ document.querySelector('#icono-carrito').parentElement.addEventListener('click',
 
 cerrarCarrito.addEventListener('click', () => {
   modalCarrito.style.display = 'none';
-});
-
-botonVerificar.addEventListener('click', () => {
-  modalCompra.style.display = 'flex';
-  carrito = [];
-  actualizarContadorCarrito();
-  guardarCarrito();
-  actualizarTotal();
-  modalCarrito.style.display = 'none';
-});
-
-cerrarCompra.addEventListener('click', () => {
-  modalCompra.style.display = 'none';
 });
 
 obtenerProductos();

@@ -14,8 +14,8 @@
   .cont-carrito {
     background-color: $color-blanco;
     padding: 50px;
-    border-radius: $radius-l;
-    width: 1200px;
+    border-radius: $radius-xl;
+    width: 900px;
     max-height: 800px;
     overflow-y: auto;
 
@@ -56,7 +56,7 @@
       .items-carrito {
         tr {
           text-align: center;
-  
+
           td {
             padding: 10px 0;
 
@@ -64,9 +64,9 @@
               width: 35px;
             }
           }
-  
+
           .contenedor-botones {
-  
+
             .quitar-cantidad,
             .agregar-cantidad {
               border: none;
@@ -77,12 +77,12 @@
               padding: 0;
               margin: 0;
               transition: all 0.3s ease-in-out;
-  
+
               &:hover {
                 transform: scale(1.03);
                 filter: drop-shadow(0px 0px 5px #0000004d);
               }
-  
+
               & {
                 text-decoration: none;
                 font-size: $normal;
@@ -90,7 +90,7 @@
                 color: $color-negro;
               }
             }
-  
+
             .cantidad-input {
               width: 50px;
               height: 36px;
@@ -101,7 +101,7 @@
               margin-left: 5px;
               margin-right: 5px;
             }
-  
+
             .eliminar-producto {
               border: none;
               border-radius: $radius-m;
@@ -109,12 +109,12 @@
               padding: 5px 16px;
               transition: all 0.3s ease-in-out;
               margin-left: 10px;
-  
+
               &:hover {
                 transform: scale(1.03);
                 filter: drop-shadow(0px 0px 5px #0000004d);
               }
-  
+
               & {
                 text-decoration: none;
                 font-size: $normal;
@@ -128,9 +128,11 @@
     }
 
     p {
-      font-size: $grande;
+      text-align: end;
+      font-size: $normal;
       font-weight: $bold;
-      text-transform: uppercase;    
+      padding: 0;
+      margin: 0;
     }
 
     button {
@@ -141,6 +143,18 @@
       background-color: $color-calipso;
       padding: 5px 16px;
       transition: all 0.3s ease-in-out;
+    }
+
+    .boton-continuar {
+      font-size: $grande;
+      font-weight: $bold;
+      border: none;
+      border-radius: $radius-m;
+      background-color: $color-calipso;
+      padding: 5px 16px;
+      transition: all 0.3s ease-in-out;
+      float: right;
+      margin-top: 10px;
     }
   }
 }
@@ -160,7 +174,7 @@
   .cont-compra {
     background-color: $color-blanco;
     padding: 20px;
-    border-radius: $radius-l;
+    border-radius: $radius-xl;
     text-align: center;
     width: 500px;
 
@@ -180,6 +194,166 @@
   }
 }
 
-.icono-sweet {
-  font-size: 10px;
+.notificacion {
+  border-radius: $radius-xl;
+
+  .icono-sweet {
+    font-size: 10px;
+  }
+}
+
+.modal-resume {
+  width: 900px;
+  max-height: 800px;
+  padding: 30px;
+  color: $color-negro;
+  border-radius: $radius-xl;
+
+  .titulo {
+    font-size: 32px;
+    font-weight: $bold;
+    text-align: start;
+    margin-bottom: 22px;
+  }
+
+  .linea {
+    border-bottom: 3px solid $color-calipso;
+    margin-bottom: 20px;
+  }
+
+  .resumen {
+    padding: 0 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    span {
+      flex: 1;
+      text-align: center;
+    }
+  }
+
+  p {
+    margin-top: 50px;
+    text-align: end;
+    font-size: $normal;
+    font-weight: $bold;
+  }
+
+  .boton-confirmar {
+    @include btn-mas-info;
+  }
+
+  .boton-cancelar {
+    @include btn-cancelar;
+  }
+}
+
+.modal-formulario-envio {
+  width: 900px;
+  height: 900px;
+  padding: 30px;
+  color: $color-calipso;
+  border-radius: $radius-xl;
+  background-color: $color-blanco;
+
+  .titulo-formulario-envio {
+    color: $color-rosado;
+  }
+
+  .formulario-envio {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h3 {
+      font-weight: $bold;
+      margin-bottom: 40px;
+    }
+
+    .formulario-compra {
+      width: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+
+      .campo-formulario {
+        width: 400;
+
+        .campo-entrada {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 12px 0;
+          background-color: $color-blanco;
+          border-radius: $radius-s;
+          border: 2px solid $color-calipso;
+
+          i {
+            font-size: 24px;
+            margin: 0 10px;
+          }
+
+          input {
+            width: 400px;
+            height: 38px;
+            margin-right: 10px;
+            padding: 0 10px;
+            border: none;
+            outline: none;
+            color: $color-negro;
+            background-color: transparent;
+
+            &::placeholder {
+              color: $color-calipso;
+              font-size: $light;
+            }
+
+            &:autofill,
+            &:autofill:hover,
+            &:autofill:focus {
+              background-color: transparent;
+              color: inherit;
+              border: none;
+              transition: background-color 5000s ease-in-out 0s;
+            }
+
+          }
+        }
+      }
+    }
+  }
+
+  .boton-confirmar {
+    @include btn-mas-info;
+  }
+
+  .boton-cancelar {
+    @include btn-cancelar;
+  }
+}
+
+.modal-compra-finalizada {
+  border-radius: $radius-xl;
+
+  .icono-sweet {
+    font-size: 10px;
+  }
+}
+
+.modal-carrito-vacio {
+  border-radius: $radius-xl;
+
+  .icono-sweet {
+    font-size: 10px;
+  }
+
+  .boton-ok {
+    @include btn-mas-info;
+  }
 }
