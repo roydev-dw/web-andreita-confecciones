@@ -327,7 +327,7 @@ function mostrarConfirmacionPedido() {
       </div>`
     )
     .join('');
-  const total = carrito.reduce((acc, item) => acc + item.precio * (item.cantidad || 1), 0);
+  const total = carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
   const totalFormateado = total.toLocaleString('es-CL', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
 
   Swal.fire({
