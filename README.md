@@ -34,7 +34,7 @@
 
 ## Consumo de API 🚀
 
-- Integración con una API para productos: El proyecto realiza peticiones a una API externa para obtener los productos que se muestran en la tienda. Esta integración asegura que la información esté siempre actualizada, y permite agregar o modificar productos de forma dinámica sin necesidad de actualizar el HTML.
+- **Integración con una API para productos:** El proyecto realiza peticiones a una API externa para obtener los productos que se muestran en la tienda. Esta integración asegura que la información esté siempre actualizada, y permite agregar o modificar productos de forma dinámica sin necesidad de actualizar el HTML.
 
 <br>
 
