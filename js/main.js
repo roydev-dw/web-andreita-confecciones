@@ -327,7 +327,7 @@ function mostrarConfirmacionPedido() {
       </div>`
     )
     .join('');
-  const total = carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
+  const total = carrito.reduce((acc, item) => acc + item.precio * (item.cantidad || 1), 0);
   const totalFormateado = total.toLocaleString('es-CL', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
 
   Swal.fire({
@@ -376,7 +376,7 @@ function mostrarConfirmacionPedido() {
         <div class="campo-formulario">
           <div class="campo-entrada">
             <i class="bi bi-envelope"></i>
-            <input type="email" id="correo" class="input-formulario" placeholder="Correo">
+            <input type="email" id="correo-envio" class="input-formulario" placeholder="Correo">
           </div>
         </div>
         <div class="campo-formulario">
@@ -418,9 +418,11 @@ function mostrarConfirmacionPedido() {
         preConfirm: () => {
           const nombre = document.getElementById('nombre').value;
           const rut = document.getElementById('rut').value;
-          const correo = document.getElementById('correo').value;
+          const correo = document.getElementById('correo-envio').value;
           const telefono = document.getElementById('telefono').value;
           const direccion = document.getElementById('direccion').value;
+
+          console.log({ nombre, rut, correo, telefono, direccion });
 
           if (!nombre || !rut || !correo || !telefono || !direccion) {
             Swal.showValidationMessage(`Por favor, complete todos los campos.`);
