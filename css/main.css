@@ -334,8 +334,8 @@ nav .cont-carrito .line {
 .modal-carrito .cont-carrito {
   background-color: #ffffff;
   padding: 50px;
-  border-radius: 10px;
-  width: 1200px;
+  border-radius: 20px;
+  width: 900px;
   max-height: 800px;
   overflow-y: auto;
 }
@@ -429,9 +429,11 @@ nav .cont-carrito .line {
   color: #000000;
 }
 .modal-carrito .cont-carrito p {
-  font-size: 24px;
+  text-align: end;
+  font-size: 18px;
   font-weight: 700;
-  text-transform: uppercase;
+  padding: 0;
+  margin: 0;
 }
 .modal-carrito .cont-carrito button {
   font-size: 24px;
@@ -441,6 +443,17 @@ nav .cont-carrito .line {
   background-color: #41D9D9;
   padding: 5px 16px;
   transition: all 0.3s ease-in-out;
+}
+.modal-carrito .cont-carrito .boton-continuar {
+  font-size: 24px;
+  font-weight: 700;
+  border: none;
+  border-radius: 7px;
+  background-color: #41D9D9;
+  padding: 5px 16px;
+  transition: all 0.3s ease-in-out;
+  float: right;
+  margin-top: 10px;
 }
 
 .modal-compra {
@@ -458,7 +471,7 @@ nav .cont-carrito .line {
 .modal-compra .cont-compra {
   background-color: #ffffff;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 20px;
   text-align: center;
   width: 500px;
 }
@@ -488,8 +501,212 @@ nav .cont-carrito .line {
   color: #000000;
 }
 
-.icono-sweet {
+.notificacion {
+  border-radius: 20px;
+}
+.notificacion .icono-sweet {
   font-size: 10px;
+}
+
+.modal-resume {
+  width: 900px;
+  max-height: 800px;
+  padding: 30px;
+  color: #000000;
+  border-radius: 20px;
+}
+.modal-resume .titulo {
+  font-size: 32px;
+  font-weight: 700;
+  text-align: start;
+  margin-bottom: 22px;
+}
+.modal-resume .linea {
+  border-bottom: 3px solid #41D9D9;
+  margin-bottom: 20px;
+}
+.modal-resume .resumen {
+  padding: 0 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.modal-resume .resumen span {
+  flex: 1;
+  text-align: center;
+}
+.modal-resume p {
+  margin-top: 50px;
+  text-align: end;
+  font-size: 18px;
+  font-weight: 700;
+}
+.modal-resume .boton-confirmar {
+  border: none;
+  border-radius: 10px;
+  background-color: #41D9D9;
+  padding: 10px 15px;
+  transition: all 0.3s ease-in-out;
+}
+.modal-resume .boton-confirmar:hover {
+  transform: scale(1.03);
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.3019607843));
+}
+.modal-resume .boton-confirmar {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 700;
+  color: #000000;
+}
+.modal-resume .boton-cancelar {
+  border: none;
+  border-radius: 10px;
+  background-color: #ff0000;
+  padding: 10px 15px;
+  transition: all 0.3s ease-in-out;
+}
+.modal-resume .boton-cancelar:hover {
+  transform: scale(1.03);
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.3019607843));
+}
+.modal-resume .boton-cancelar {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.modal-formulario-envio {
+  width: 900px;
+  height: 900px;
+  padding: 30px;
+  color: #41D9D9;
+  border-radius: 20px;
+  background-color: #ffffff;
+}
+.modal-formulario-envio .titulo-formulario-envio {
+  color: #F205B3;
+}
+.modal-formulario-envio .formulario-envio {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.modal-formulario-envio .formulario-envio h3 {
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+.modal-formulario-envio .formulario-envio .formulario-compra {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+.modal-formulario-envio .formulario-envio .formulario-compra .campo-formulario {
+  width: 400;
+}
+.modal-formulario-envio .formulario-envio .formulario-compra .campo-formulario .campo-entrada {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: 2px solid #41D9D9;
+}
+.modal-formulario-envio .formulario-envio .formulario-compra .campo-formulario .campo-entrada i {
+  font-size: 24px;
+  margin: 0 10px;
+}
+.modal-formulario-envio .formulario-envio .formulario-compra .campo-formulario .campo-entrada input {
+  width: 400px;
+  height: 38px;
+  margin-right: 10px;
+  padding: 0 10px;
+  border: none;
+  outline: none;
+  color: #000000;
+  background-color: transparent;
+}
+.modal-formulario-envio .formulario-envio .formulario-compra .campo-formulario .campo-entrada input::placeholder {
+  color: #41D9D9;
+  font-size: 300;
+}
+.modal-formulario-envio .formulario-envio .formulario-compra .campo-formulario .campo-entrada input:autofill, .modal-formulario-envio .formulario-envio .formulario-compra .campo-formulario .campo-entrada input:autofill:hover, .modal-formulario-envio .formulario-envio .formulario-compra .campo-formulario .campo-entrada input:autofill:focus {
+  background-color: transparent;
+  color: inherit;
+  border: none;
+  transition: background-color 5000s ease-in-out 0s;
+}
+.modal-formulario-envio .boton-confirmar {
+  border: none;
+  border-radius: 10px;
+  background-color: #41D9D9;
+  padding: 10px 15px;
+  transition: all 0.3s ease-in-out;
+}
+.modal-formulario-envio .boton-confirmar:hover {
+  transform: scale(1.03);
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.3019607843));
+}
+.modal-formulario-envio .boton-confirmar {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 700;
+  color: #000000;
+}
+.modal-formulario-envio .boton-cancelar {
+  border: none;
+  border-radius: 10px;
+  background-color: #ff0000;
+  padding: 10px 15px;
+  transition: all 0.3s ease-in-out;
+}
+.modal-formulario-envio .boton-cancelar:hover {
+  transform: scale(1.03);
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.3019607843));
+}
+.modal-formulario-envio .boton-cancelar {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.modal-compra-finalizada {
+  border-radius: 20px;
+}
+.modal-compra-finalizada .icono-sweet {
+  font-size: 10px;
+}
+
+.modal-carrito-vacio {
+  border-radius: 20px;
+}
+.modal-carrito-vacio .icono-sweet {
+  font-size: 10px;
+}
+.modal-carrito-vacio .boton-ok {
+  border: none;
+  border-radius: 10px;
+  background-color: #41D9D9;
+  padding: 10px 15px;
+  transition: all 0.3s ease-in-out;
+}
+.modal-carrito-vacio .boton-ok:hover {
+  transform: scale(1.03);
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.3019607843));
+}
+.modal-carrito-vacio .boton-ok {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 700;
+  color: #000000;
 }
 
 .cont-footer {
@@ -595,6 +812,7 @@ nav .cont-carrito .line {
 .cont-footer .cont-links .cont-media a {
   text-decoration: none;
   color: #ffffff;
+  font-weight: 700;
   margin-bottom: 10px;
 }
 
