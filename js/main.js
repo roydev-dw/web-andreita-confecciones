@@ -49,9 +49,9 @@ function mostrarProductos() {
           <h2 class="nombre-producto">${nombre}</h2>
           <p class="descripcion-producto">${descripcion}</p>
           <p class="precio-producto">$${precio.toLocaleString('es-CL', {
-            minimumFractionDigits: 0,
-            maximumFractionDigits: 0,
-          })}</p>
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    })}</p>
         </div>
         <div class="productos-card-btn">
           <button class="agregar-carrito" id="${id}">Agregar al carrito</button>
@@ -119,9 +119,9 @@ function displayCarrito() {
         <td>${item.id}</td>
         <td>${item.nombre}</td>
         <td>$${item.precio.toLocaleString('es-CL', {
-          minimumFractionDigits: 0,
-          maximumFractionDigits: 0,
-        })}</td>
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+      })}</td>
         <td class="contenedor-botones">
           <button class="quitar-cantidad" data-id="${item.id}">-</button>
           <input type="text" min="1" class="cantidad-input" id="cantidad-${item.id}" value="${item.cantidad}">
@@ -318,18 +318,20 @@ function mostrarFormularioNoticias() {
 
 function mostrarConfirmacionPedido() {
   const totalSinIVA = carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
-  const iva = totalSinIVA * TASA_IVA;
-  const totalConIVA = totalSinIVA + iva;
+  const totalConIVA = totalSinIVA * (1 + TASA_IVA);
 
   const resumen = carrito
     .map(
-      (item) => `
+      (item) => {
+        const precioTotalSinIVA = item.precio * item.cantidad;
+        const precioConIVA = precioTotalSinIVA * (1 + TASA_IVA);
+        return `
       <div class="resumen">
         <span>${item.nombre}</span>
         <span>${item.cantidad}</span>
-        <span>$${(item.precio * item.cantidad).toLocaleString('es-CL', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</span>
+        <span>$${precioConIVA.toLocaleString('es-CL', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}</span>
       </div>`
-    )
+      })
     .join('');
 
   Swal.fire({
@@ -431,8 +433,8 @@ function mostrarConfirmacionPedido() {
             return false;
           }
 
-          if (!/^[a-zA-Z]+$/.test(nombre)) {
-            Swal.showValidationMessage(`Por favor, ingrese un nombre válido (solo letras).`);
+          if (!/^[a-zA-Z\s]+$/.test(nombre)) {
+            Swal.showValidationMessage(`Por favor, ingrese un nombre válido (solo letras y espacios).`);
             return false;
           }
 

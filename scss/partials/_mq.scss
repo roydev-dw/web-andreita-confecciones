@@ -1,0 +1,199 @@
+@media only screen and (max-width: 1400px) {
+	nav {
+		.cont-logo {
+			width: 100px;
+
+			img {
+				width: 100%;
+			}
+		}
+
+		.cont-carrito {
+			width: 100px;
+
+			a {
+				.bi {
+					font-size: 40px;
+				}
+
+				.contador-carrito {
+					top: 8px;
+					right: 10px;
+				}
+			}
+		}
+	}
+
+
+	.cont-principal {
+		.cont-producto {
+			max-width: 900px;
+
+			.cont-img {
+				max-width: 450px;
+
+				img {
+					width: 100%;
+					height: 400px;
+				}
+			}
+
+			.cont-texto {
+				max-width: 450px;
+
+				h1 {
+					font-size: 25px;
+					margin-bottom: 15px;
+				}
+
+				p {
+					font-size: $normal;
+				}
+			}
+		}
+	}
+
+	/* Ofertas */
+	.cont-ofertas {
+		margin-top: 30px;
+		margin-bottom: 30px;
+
+		.cont-prod-oferta {
+			gap: 30px;
+
+			.cont-prod-img {
+				@include tamaños (350px, 200px);
+				padding: 0 30px;
+
+				img {
+					height: 150px;
+				}
+
+				div {
+					h2 {
+						font-size: $normal;
+						font-weight: $extra-bold;
+					}
+				}
+			}
+		}
+	}
+
+	/* Productos */
+	.cont-productos {
+		.cont-productos-card {
+			width: 900px;
+
+			.productos-card {
+				padding: 15px;
+				margin-bottom: 10px;
+
+				img {
+					width: 100%;
+					height: 200px;
+					margin-bottom: 20px;
+				}
+
+				.productos-card-texto {
+					h2 {
+						font-size: $normal;
+						width: 230px;
+					}
+
+					p {
+						width: 250px;
+					}
+				}
+			}
+		}
+	}
+
+	/* Footer */
+	.cont-footer {
+		.cont-links {
+			width: 900px;
+
+			.cont-copy {
+				width: 550px;
+
+				.formulario-noticias {
+					input {
+						width: 350px;
+					}
+				}
+			}
+		}
+	}
+
+	/* Modales */
+	.modal-carrito {
+		.cont-carrito {
+			margin-top: 95px;
+			padding: 20px;
+			width: 800px;
+			max-height: 400px;
+
+			.cont-cerrar-carrito h2 {
+				font-size: $grande;
+			}
+		}
+	}
+
+	.modal-resume {
+		margin-top: 95px;
+		width: 800px;
+		padding: 20px;
+		max-height: 400px;
+
+		.linea {
+			margin-bottom: 10px;
+		}
+
+		.resumen {
+			margin-bottom: 10px;
+		}
+
+		p {
+			margin-top: 10px;
+		}
+	}
+
+	.modal-formulario-envio {
+		width: 800px;
+		height: 500px;
+		padding: 20px;
+
+		.titulo-formulario-envio {
+			font-size: $grande;
+		}
+
+		.formulario-envio {
+			h3 {
+				font-size: $grande;
+				margin-bottom: 10px;
+			}
+
+			.formulario-compra {
+				width: 700px;
+				gap: 15px;
+
+				.campo-formulario {
+					width: 400px;
+
+					.campo-entrada {
+						padding: 0;
+
+						input {
+							height: 32px;
+						}
+					}
+				}
+			}
+		}
+
+		.boton-confirmar,
+		.boton-cancelar {
+			margin-top: 0;
+		}
+	}
+}
