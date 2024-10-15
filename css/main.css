@@ -7,7 +7,7 @@
 
 body {
   overflow-y: scroll;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
 }
 
@@ -47,7 +47,7 @@ nav .cont-menu .menu {
 }
 nav .cont-menu .menu a {
   text-decoration: none;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 700;
   color: #000000;
 }
@@ -131,10 +131,12 @@ nav .cont-carrito .line {
   font-weight: 900;
   text-transform: uppercase;
   margin-bottom: 30px;
+  text-wrap: balance;
 }
 .cont-principal .cont-producto .cont-texto p {
-  font-size: 24px;
+  font-size: 20px;
   text-align: center;
+  text-wrap: balance;
 }
 .cont-principal .cont-producto .cont-texto p:nth-of-type(1) {
   font-weight: 900;
@@ -162,7 +164,7 @@ nav .cont-carrito .line {
 }
 .cont-principal .cont-producto .cont-texto a {
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   color: #000000;
 }
@@ -200,7 +202,7 @@ nav .cont-carrito .line {
   align-items: center;
 }
 .cont-ofertas .cont-prod-oferta .cont-prod-img div h2 {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 900;
   text-transform: uppercase;
 }
@@ -217,7 +219,7 @@ nav .cont-carrito .line {
 }
 .cont-ofertas .cont-prod-oferta .cont-prod-img div a {
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   color: #000000;
 }
@@ -226,6 +228,7 @@ nav .cont-carrito .line {
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .cont-productos .cont-productos-card {
   width: 1200px;
@@ -260,7 +263,7 @@ nav .cont-carrito .line {
 .cont-productos .productos-card .productos-card-texto h2 {
   width: 300px;
   margin-top: 10px;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 900;
   text-transform: uppercase;
   text-align: center;
@@ -284,7 +287,7 @@ nav .cont-carrito .line {
 }
 .cont-productos .productos-card .productos-card-texto button {
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   color: #000000;
 }
@@ -304,7 +307,7 @@ nav .cont-carrito .line {
 }
 .cont-productos .productos-card .productos-card-btn button {
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   color: #000000;
 }
@@ -396,7 +399,7 @@ nav .cont-carrito .line {
 .modal-carrito .cont-carrito .tabla-carrito .items-carrito tr .contenedor-botones .quitar-cantidad,
 .modal-carrito .cont-carrito .tabla-carrito .items-carrito tr .contenedor-botones .agregar-cantidad {
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   color: #000000;
 }
@@ -424,19 +427,19 @@ nav .cont-carrito .line {
 }
 .modal-carrito .cont-carrito .tabla-carrito .items-carrito tr .contenedor-botones .eliminar-producto {
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   color: #000000;
 }
 .modal-carrito .cont-carrito p {
   text-align: end;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   padding: 0;
   margin: 0;
 }
 .modal-carrito .cont-carrito button {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   border: none;
   border-radius: 7px;
@@ -445,7 +448,7 @@ nav .cont-carrito .line {
   transition: all 0.3s ease-in-out;
 }
 .modal-carrito .cont-carrito .boton-continuar {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   border: none;
   border-radius: 7px;
@@ -496,7 +499,7 @@ nav .cont-carrito .line {
 }
 .modal-compra .cont-compra button {
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   color: #000000;
 }
@@ -514,6 +517,7 @@ nav .cont-carrito .line {
   padding: 30px;
   color: #000000;
   border-radius: 20px;
+  overflow-y: auto;
 }
 .modal-resume .titulo {
   font-size: 32px;
@@ -540,7 +544,6 @@ nav .cont-carrito .line {
 .modal-resume p {
   margin-top: 50px;
   text-align: end;
-  font-size: 18px;
   font-weight: 700;
 }
 .modal-resume .boton-confirmar {
@@ -556,7 +559,7 @@ nav .cont-carrito .line {
 }
 .modal-resume .boton-confirmar {
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   color: #000000;
 }
@@ -573,7 +576,7 @@ nav .cont-carrito .line {
 }
 .modal-resume .boton-cancelar {
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   color: #ffffff;
 }
@@ -608,7 +611,7 @@ nav .cont-carrito .line {
   gap: 30px;
 }
 .modal-formulario-envio .formulario-envio .formulario-compra .campo-formulario {
-  width: 400;
+  width: 400px;
 }
 .modal-formulario-envio .formulario-envio .formulario-compra .campo-formulario .campo-entrada {
   display: flex;
@@ -656,7 +659,7 @@ nav .cont-carrito .line {
 }
 .modal-formulario-envio .boton-confirmar {
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   color: #000000;
 }
@@ -673,7 +676,7 @@ nav .cont-carrito .line {
 }
 .modal-formulario-envio .boton-cancelar {
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   color: #ffffff;
 }
@@ -704,7 +707,7 @@ nav .cont-carrito .line {
 }
 .modal-carrito-vacio .boton-ok {
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   color: #000000;
 }
@@ -722,6 +725,7 @@ nav .cont-carrito .line {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  margin-top: 14px;
 }
 .cont-footer .cont-links .cont-paginas ul {
   list-style: none;
@@ -800,7 +804,7 @@ nav .cont-carrito .line {
 }
 .cont-footer .cont-links .cont-copy .formulario-noticias button {
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   color: #000000;
 }
@@ -814,6 +818,149 @@ nav .cont-carrito .line {
   color: #ffffff;
   font-weight: 700;
   margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 1400px) {
+  nav .cont-logo {
+    width: 100px;
+  }
+  nav .cont-logo img {
+    width: 100%;
+  }
+  nav .cont-carrito {
+    width: 100px;
+  }
+  nav .cont-carrito a .bi {
+    font-size: 40px;
+  }
+  nav .cont-carrito a .contador-carrito {
+    top: 8px;
+    right: 10px;
+  }
+  .cont-principal .cont-producto {
+    max-width: 900px;
+  }
+  .cont-principal .cont-producto .cont-img {
+    max-width: 450px;
+  }
+  .cont-principal .cont-producto .cont-img img {
+    width: 100%;
+    height: 400px;
+  }
+  .cont-principal .cont-producto .cont-texto {
+    max-width: 450px;
+  }
+  .cont-principal .cont-producto .cont-texto h1 {
+    font-size: 25px;
+    margin-bottom: 15px;
+  }
+  .cont-principal .cont-producto .cont-texto p {
+    font-size: 16px;
+  }
+  /* Ofertas */
+  .cont-ofertas {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .cont-ofertas .cont-prod-oferta {
+    gap: 30px;
+  }
+  .cont-ofertas .cont-prod-oferta .cont-prod-img {
+    width: 350px;
+    height: 200px;
+    padding: 0 30px;
+  }
+  .cont-ofertas .cont-prod-oferta .cont-prod-img img {
+    height: 150px;
+  }
+  .cont-ofertas .cont-prod-oferta .cont-prod-img div h2 {
+    font-size: 16px;
+    font-weight: 900;
+  }
+  /* Productos */
+  .cont-productos .cont-productos-card {
+    width: 900px;
+  }
+  .cont-productos .cont-productos-card .productos-card {
+    padding: 15px;
+    margin-bottom: 10px;
+  }
+  .cont-productos .cont-productos-card .productos-card img {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 20px;
+  }
+  .cont-productos .cont-productos-card .productos-card .productos-card-texto h2 {
+    font-size: 16px;
+    width: 230px;
+  }
+  .cont-productos .cont-productos-card .productos-card .productos-card-texto p {
+    width: 250px;
+  }
+  /* Footer */
+  .cont-footer .cont-links {
+    width: 900px;
+  }
+  .cont-footer .cont-links .cont-copy {
+    width: 550px;
+  }
+  .cont-footer .cont-links .cont-copy .formulario-noticias input {
+    width: 350px;
+  }
+  /* Modales */
+  .modal-carrito .cont-carrito {
+    margin-top: 95px;
+    padding: 20px;
+    width: 800px;
+    max-height: 400px;
+  }
+  .modal-carrito .cont-carrito .cont-cerrar-carrito h2 {
+    font-size: 20px;
+  }
+  .modal-resume {
+    margin-top: 95px;
+    width: 800px;
+    padding: 20px;
+    max-height: 400px;
+  }
+  .modal-resume .linea {
+    margin-bottom: 10px;
+  }
+  .modal-resume .resumen {
+    margin-bottom: 10px;
+  }
+  .modal-resume p {
+    margin-top: 10px;
+  }
+  .modal-formulario-envio {
+    width: 800px;
+    height: 500px;
+    padding: 20px;
+  }
+  .modal-formulario-envio .titulo-formulario-envio {
+    font-size: 20px;
+  }
+  .modal-formulario-envio .formulario-envio h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .modal-formulario-envio .formulario-envio .formulario-compra {
+    width: 700px;
+    gap: 15px;
+  }
+  .modal-formulario-envio .formulario-envio .formulario-compra .campo-formulario {
+    width: 400px;
+  }
+  .modal-formulario-envio .formulario-envio .formulario-compra .campo-formulario .campo-entrada {
+    padding: 0;
+  }
+  .modal-formulario-envio .formulario-envio .formulario-compra .campo-formulario .campo-entrada input {
+    height: 32px;
+  }
+  .modal-formulario-envio .boton-confirmar,
+  .modal-formulario-envio .boton-cancelar {
+    margin-top: 0;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
