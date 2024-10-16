@@ -15,8 +15,8 @@
 - **Primera Fase:** Estructura con HTML 🏗️
   Se creó la estructura inicial del sitio, definiendo la navegación, las secciones de productos y el carrito de compras. La atención se centró en organizar el contenido de manera clara y accesible.
 
-- **Segunda Fase:** Estilos y Diseño 🎨
-  En esta etapa, se añadieron estilos utilizando un poco de Bootstrap para lograr un diseño, pero el mayor atractivo de la página esta hecho con css y scss.
+- **Segunda Fase:** Estilos y Diseño Responsivo 🎨
+  En esta etapa, se añadieron estilos utilizando un poco de Bootstrap, ademas se crean media query's para distintos tamaños de dospositivos, pero el mayor atractivo de la página esta hecho puramente con css y scss.
 
 - **Tercera Fase:** SASS y Mejoras de Interacción ✨
   El diseño fue refinado utilizando SASS para facilitar la gestión de estilos. Además, se integraron animaciones y efectos visuales para mejorar la interacción con los productos, como la superposición de texto en imágenes y efectos de transición al pasar el mouse sobre los elementos.
