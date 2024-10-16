@@ -1,199 +1,716 @@
 @media only screen and (max-width: 1400px) {
-	nav {
-		.cont-logo {
-			width: 100px;
 
-			img {
-				width: 100%;
-			}
-		}
+  /* Barra de navegación */
+  nav {
+    .cont-logo {
+      width: 100px;
 
-		.cont-carrito {
-			width: 100px;
+      img {
+        width: 100%;
+      }
+    }
 
-			a {
-				.bi {
-					font-size: 40px;
-				}
+    .cont-carrito {
+      width: 100px;
 
-				.contador-carrito {
-					top: 8px;
-					right: 10px;
-				}
-			}
-		}
-	}
+      a {
+        .bi {
+          font-size: 40px;
+        }
+
+        .contador-carrito {
+          top: 8px;
+          right: 10px;
+        }
+      }
+    }
+  }
+
+  /* Producto principal */
+  .cont-principal {
+    .cont-producto {
+      max-width: 900px;
+
+      .cont-img {
+        max-width: 450px;
+
+        img {
+          width: 100%;
+          height: 400px;
+        }
+      }
+
+      .cont-texto {
+        max-width: 450px;
+
+        h1 {
+          font-size: 25px;
+          margin-bottom: 15px;
+        }
+
+        p {
+          font-size: $normal;
+        }
+      }
+    }
+  }
+
+  /* Ofertas */
+  .cont-ofertas {
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    .cont-prod-oferta {
+      gap: 30px;
+
+      .cont-prod-img {
+        @include tamaños (350px, 200px);
+        padding: 0 30px;
+
+        img {
+          height: 150px;
+        }
+
+        div {
+          h2 {
+            font-size: $normal;
+            font-weight: $extra-bold;
+          }
+        }
+      }
+    }
+  }
+
+  /* Productos */
+  .cont-productos {
+    .cont-productos-card {
+      width: 900px;
+
+      .productos-card {
+        padding: 15px;
+        margin-bottom: 10px;
+
+        img {
+          width: 100%;
+          height: 200px;
+          margin-bottom: 20px;
+        }
+
+        .productos-card-texto {
+          h2 {
+            font-size: $normal;
+            width: 230px;
+          }
+
+          p {
+            width: 250px;
+          }
+        }
+      }
+    }
+  }
+
+  /* Footer */
+  .cont-footer {
+    .cont-links {
+      width: 900px;
+
+      .cont-copy {
+        width: 550px;
+
+        .formulario-noticias {
+          input {
+            width: 350px;
+          }
+        }
+      }
+    }
+  }
+
+  /* Modales */
+  .modal-carrito {
+    .cont-carrito {
+      margin-top: 95px;
+      padding: 20px;
+      width: 800px;
+      max-height: 400px;
+
+      .cont-cerrar-carrito h2 {
+        font-size: $grande;
+      }
+    }
+  }
+
+  .modal-resume {
+    margin-top: 95px;
+    width: 800px;
+    padding: 20px;
+    max-height: 400px;
+
+    .linea {
+      margin-bottom: 10px;
+    }
+
+    .resumen {
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-top: 10px;
+    }
+  }
+
+  .modal-formulario-envio {
+    width: 800px;
+    height: 500px;
+    padding: 20px;
+
+    .titulo-formulario-envio {
+      font-size: $grande;
+    }
+
+    .formulario-envio {
+      h3 {
+        font-size: $grande;
+        margin-bottom: 10px;
+      }
+
+      .formulario-compra {
+        width: 700px;
+        gap: 15px;
+
+        .campo-formulario {
+          width: 400px;
+
+          .campo-entrada {
+            padding: 0;
+
+            input {
+              height: 32px;
+            }
+          }
+        }
+      }
+    }
+
+    .boton-confirmar,
+    .boton-cancelar {
+      margin-top: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 1199px) {
+
+  /* Producto principal */
+  .cont-principal {
+    height: 590px;
+
+    .cont-producto {
+      .cont-img {
+        max-width: 350px;
+
+        img {
+          width: 200px;
+          height: auto;
+        }
+      }
+    }
+  }
+
+  .cont-texto {
+    width: 300px;
+  }
+
+  /* Ofertas */
+  .cont-ofertas {
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    .cont-prod-oferta {
+      gap: 30px;
+
+      .cont-prod-img {
+        @include tamaños (300px, 180px);
+        padding: 0 20px;
+
+        img {
+          height: 110px;
+        }
+      }
+    }
+  }
+
+  /* Productos */
+  .cont-productos {
+    .cont-productos-card {
+      width: 900px;
+      justify-content: center;
+
+      .productos-card {
+        width: 800px;
+        height: 300px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+        margin-bottom: 0;
+
+        img {
+          width: 200px;
+          height: 200px;
+          margin: 0;
+          margin-bottom: 20px;
+        }
+
+        .productos-card-texto {
+          h2 {
+            width: 300px;
+            font-size: $normal;
+          }
+
+          p {
+            width: 300px;
+          }
+        }
+
+        .productos-card-btn {
+          padding: 0;
+          margin: 0;
+          display: contents;
+        }
+      }
+    }
+  }
+
+  /* Modales */
+  .modal-carrito {
+    .cont-carrito {
+      width: 800px;
+      max-height: 500px;
+    }
+  }
+
+  .modal-resume {
+    width: 800px;
+    max-height: 500px;
+  }
+
+  .modal-formulario-envio {
+    width: 800px;
+    height: 550px;
+  }
+}
 
 
-	.cont-principal {
-		.cont-producto {
-			max-width: 900px;
+@media only screen and (max-width: 900px) {
 
-			.cont-img {
-				max-width: 450px;
+  /* Producto principal */
+  .cont-principal {
+    height: 620px;
+  }
 
-				img {
-					width: 100%;
-					height: 400px;
-				}
-			}
+  /* Ofertas */
+  .cont-ofertas {
+    .cont-prod-oferta {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
 
-			.cont-texto {
-				max-width: 450px;
+      .cont-prod-img {
+        @include tamaños (500px, 220px);
+        padding: 0 20px;
 
-				h1 {
-					font-size: 25px;
-					margin-bottom: 15px;
-				}
+        img {
+          height: 200px;
+          margin-left: 30px;
+        }
 
-				p {
-					font-size: $normal;
-				}
-			}
-		}
-	}
+        div {
+          margin-right: 40px;
+        }
+      }
+    }
+  }
 
-	/* Ofertas */
-	.cont-ofertas {
-		margin-top: 30px;
-		margin-bottom: 30px;
+  /* Productos */
+  .cont-productos {
+    .cont-productos-card {
+      justify-content: center;
 
-		.cont-prod-oferta {
-			gap: 30px;
+      .productos-card {
+        width: 700px;
+        height: 300px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 50px;
+        margin-bottom: 0;
 
-			.cont-prod-img {
-				@include tamaños (350px, 200px);
-				padding: 0 30px;
+        img {
+          width: auto;
+          height: 150px;
+        }
 
-				img {
-					height: 150px;
-				}
+        .productos-card-texto {
+          width: 300px;
+          height: auto;
+          padding: 0 30px;
 
-				div {
-					h2 {
-						font-size: $normal;
-						font-weight: $extra-bold;
-					}
-				}
-			}
-		}
-	}
+          h2 {
+            width: 100%;
+          }
 
-	/* Productos */
-	.cont-productos {
-		.cont-productos-card {
-			width: 900px;
+          p {
+            width: 100%;
+          }
+        }
 
-			.productos-card {
-				padding: 15px;
-				margin-bottom: 10px;
+        .productos-card-btn {
+          padding: 0;
+          margin: 0;
+          display: contents;
+        }
+      }
+    }
+  }
 
-				img {
-					width: 100%;
-					height: 200px;
-					margin-bottom: 20px;
-				}
+  /* Modales */
+  .modal-carrito {
+    .cont-carrito {
+      width: 700px;
+      max-height: 800px;
+    }
+  }
 
-				.productos-card-texto {
-					h2 {
-						font-size: $normal;
-						width: 230px;
-					}
+  .modal-resume {
+    width: 700px;
+    max-height: 800px;
+  }
 
-					p {
-						width: 250px;
-					}
-				}
-			}
-		}
-	}
+  .modal-formulario-envio {
+    width: 700px;
+    height: 510px;
+  }
+}
 
-	/* Footer */
-	.cont-footer {
-		.cont-links {
-			width: 900px;
+@media only screen and (max-width: 768px) {
 
-			.cont-copy {
-				width: 550px;
+  /* Producto principal */
+  .cont-principal {
+    height: 400px;
 
-				.formulario-noticias {
-					input {
-						width: 350px;
-					}
-				}
-			}
-		}
-	}
+    .cont-producto {
+      .cont-img {
+        width: 300px;
 
-	/* Modales */
-	.modal-carrito {
-		.cont-carrito {
-			margin-top: 95px;
-			padding: 20px;
-			width: 800px;
-			max-height: 400px;
+        img {
+          height: 200px;
+          width: auto;
+          margin-left: 40px;
+        }
+      }
 
-			.cont-cerrar-carrito h2 {
-				font-size: $grande;
-			}
-		}
-	}
+      .cont-texto {
+        margin-right: 40px;
 
-	.modal-resume {
-		margin-top: 95px;
-		width: 800px;
-		padding: 20px;
-		max-height: 400px;
+        h1 {
+          text-align: center;
+          font-size: $normal;
+          margin-bottom: 10px;
+        }
 
-		.linea {
-			margin-bottom: 10px;
-		}
+        p {
+          font-size: $normal;
+        }
+      }
+    }
+  }
 
-		.resumen {
-			margin-bottom: 10px;
-		}
+  /* Ofertas */
+  .cont-ofertas {
+    .cont-prod-oferta {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
 
-		p {
-			margin-top: 10px;
-		}
-	}
+      .cont-prod-img {
+        @include tamaños (400px, 180px);
+        padding: 0 20px;
 
-	.modal-formulario-envio {
-		width: 800px;
-		height: 500px;
-		padding: 20px;
+        img {
+          height: 120px;
+          margin-left: 40px;
+        }
 
-		.titulo-formulario-envio {
-			font-size: $grande;
-		}
+        div {
+          margin-right: 40px;
+        }
+      }
+    }
+  }
 
-		.formulario-envio {
-			h3 {
-				font-size: $grande;
-				margin-bottom: 10px;
-			}
+  /* Productos */
+  .cont-productos {
+    .cont-productos-card {
+      justify-content: center;
 
-			.formulario-compra {
-				width: 700px;
-				gap: 15px;
+      .productos-card {
+        width: 600px;
+        height: 300px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 50px;
+        margin-bottom: 0;
 
-				.campo-formulario {
-					width: 400px;
+        img {
+          width: auto;
+          height: 150px;
+        }
 
-					.campo-entrada {
-						padding: 0;
+        .productos-card-texto {
+          width: 300px;
+          height: auto;
+          padding: 0 30px;
 
-						input {
-							height: 32px;
-						}
-					}
-				}
-			}
-		}
+          h2 {
+            width: 100%;
+          }
 
-		.boton-confirmar,
-		.boton-cancelar {
-			margin-top: 0;
-		}
-	}
+          p {
+            width: 100%;
+          }
+        }
+
+        .productos-card-btn {
+          button {
+            @include btn-mas-info;
+            text-indent: -9999px;
+            overflow: hidden;
+            position: relative;
+
+            &::before {
+              content: 'Agregar';
+              text-indent: 0;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* Modales */
+  .modal-carrito {
+    z-index: 2;
+
+    .cont-carrito {
+      margin-top: 0;
+      width: 700px;
+      max-height: 300px;
+    }
+  }
+
+  .modal-resume {
+    width: 700px;
+    max-height: 800px;
+  }
+
+  .modal-formulario-envio {
+    width: 700px;
+    height: 510px;
+  }
+
+  /* Footer */
+  .cont-footer {
+    .cont-links {
+      width: 680px;
+
+      .cont-copy {
+        width: 450px;
+
+        p {
+          text-wrap: pretty;
+        }
+
+        .formulario-noticias {
+          input {
+            width: 300px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+
+  nav {
+    display: none;
+  }
+
+  /* Producto principal */
+  .cont-principal {
+    height: 570px;
+
+    .cont-producto {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .cont-img {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+
+        img {
+          height: 200px;
+          width: auto;
+          margin: 20px 0;
+        }
+      }
+
+      .cont-texto {
+        margin: 0;
+
+        h1 {
+          text-align: center;
+          font-size: $normal;
+          margin-bottom: 10px;
+        }
+
+        p {
+          font-size: $normal;
+          margin: 10px 0;
+        }
+      }
+    }
+  }
+
+  /* Ofertas */
+  .cont-ofertas {
+    .cont-prod-oferta {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+
+      .cont-prod-img {
+        @include tamaños (400px, 180px);
+        padding: 0 20px;
+
+        img {
+          height: 120px;
+          margin-left: 40px;
+        }
+
+        div {
+          margin-right: 40px;
+        }
+      }
+    }
+  }
+
+  /* Productos */
+  .cont-productos {
+    display: none;
+
+    .cont-productos-card {
+      justify-content: center;
+
+      .productos-card {
+        width: 600px;
+        height: 300px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 50px;
+        margin-bottom: 0;
+
+        img {
+          width: auto;
+          height: 150px;
+        }
+
+        .productos-card-texto {
+          width: 300px;
+          height: auto;
+          padding: 0 30px;
+
+          h2 {
+            width: 100%;
+          }
+
+          p {
+            width: 100%;
+          }
+        }
+
+        .productos-card-btn {
+          button {
+            @include btn-mas-info;
+            text-indent: -9999px;
+            overflow: hidden;
+            position: relative;
+
+            &::before {
+              content: 'Agregar';
+              text-indent: 0;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* Modales */
+  .modal-carrito {
+    z-index: 2;
+
+    .cont-carrito {
+      margin-top: 0;
+      width: 700px;
+      max-height: 300px;
+    }
+  }
+
+  .modal-resume {
+    width: 700px;
+    max-height: 800px;
+  }
+
+  .modal-formulario-envio {
+    width: 700px;
+    height: 510px;
+  }
+
+  /* Footer */
+  .cont-footer {
+    display: none;
+
+    .cont-links {
+      width: 680px;
+
+      .cont-copy {
+        width: 450px;
+
+        p {
+          text-wrap: pretty;
+        }
+
+        .formulario-noticias {
+          input {
+            width: 300px;
+          }
+        }
+      }
+    }
+  }
 }
