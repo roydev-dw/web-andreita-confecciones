@@ -49,6 +49,16 @@
     font-weight: $bold;
     color: $color-negro;
   }
+
+  &::before {
+    content: "Agregar al carrito";
+  }
+
+  @media (max-width: 1199px) {
+    &::before {
+      content: "Agregar";
+    }
+  }
 }
 
 @mixin btn-cancelar {
