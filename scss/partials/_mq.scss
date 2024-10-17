@@ -251,33 +251,39 @@
         width: 800px;
         height: 300px;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
-        padding: 30px;
+        padding: 10px;
         margin-bottom: 0;
 
         img {
-          width: 200px;
+          width: auto;
           height: 200px;
-          margin: 0;
           margin-bottom: 20px;
         }
 
         .productos-card-texto {
-          h2 {
-            width: 300px;
-            font-size: $normal;
-          }
+          display: flex;
+          width: 300px;
+          flex-grow: 0;
 
+          h2,
           p {
-            width: 300px;
+            width: 100%;
+            font-size: $normal;
           }
         }
 
         .productos-card-btn {
-          padding: 0;
+          padding-left: 20px;
           margin: 0;
           display: contents;
+        }
+
+        .productos-card-btn {
+          button {
+            @include btn-mas-info;
+          }
         }
       }
     }
@@ -304,6 +310,76 @@
 
 
 @media only screen and (max-width: 900px) {
+  nav {
+    position: relative;
+
+    .cont-logo {
+      margin-left: 20px;
+
+      img {
+        width: 100px;
+      }
+    }
+
+    .cont-menu {
+      .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        width: 100%;
+        top: 100%;
+        left: 0;
+        gap: 10px;
+        margin: 0;
+        text-align: center;
+
+        &.active {
+          display: flex;
+        }
+
+        li {
+          display: block;
+        }
+      }
+    }
+
+    .cont-carrito {
+      margin-right: 20px;
+      width: 49%;
+      justify-content: space-between;
+
+      a {
+        position: relative;
+        text-decoration: none;
+
+        .bi {
+          font-size: 30px;
+          color: $color-negro;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .contador-carrito {
+          position: absolute;
+          top: 4px;
+          right: 5px;
+          display: flex;
+          width: 20px;
+          height: 20px;
+          justify-content: center;
+          align-items: center;
+          color: $color-blanco;
+          font-size: 14px;
+          font-weight: $extra-bold;
+        }
+      }
+
+      .menu-burguer {
+        display: flex;
+      }
+    }
+  }
 
   /* Producto principal */
   .cont-principal {
@@ -354,22 +430,19 @@
 
         .productos-card-texto {
           width: 300px;
-          height: auto;
           padding: 0 30px;
+          flex-grow: 0;
 
-          h2 {
-            width: 100%;
-          }
-
+          h2,
           p {
             width: 100%;
           }
         }
 
         .productos-card-btn {
-          padding: 0;
-          margin: 0;
-          display: contents;
+          button {
+            @include btn-mas-info;
+          }
         }
       }
     }
@@ -392,6 +465,27 @@
     width: 700px;
     height: 510px;
   }
+
+  /* Footer */
+  .cont-footer {
+    .cont-links {
+      width: 700px;
+
+      .cont-copy {
+        width: 460px;
+
+        p {
+          text-wrap: pretty;
+        }
+
+        .formulario-noticias {
+          input {
+            width: 300px;
+          }
+        }
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -399,6 +493,7 @@
   /* Producto principal */
   .cont-principal {
     height: 400px;
+    margin: 0;
 
     .cont-producto {
       .cont-img {
@@ -430,8 +525,6 @@
   /* Ofertas */
   .cont-ofertas {
     .cont-prod-oferta {
-      flex-direction: column;
-      align-items: center;
       gap: 20px;
 
       .cont-prod-img {
@@ -441,10 +534,6 @@
         img {
           height: 120px;
           margin-left: 40px;
-        }
-
-        div {
-          margin-right: 40px;
         }
       }
     }
@@ -457,48 +546,9 @@
 
       .productos-card {
         width: 600px;
-        height: 300px;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        padding: 20px 50px;
-        margin-bottom: 0;
-
-        img {
-          width: auto;
-          height: 150px;
-        }
 
         .productos-card-texto {
-          width: 300px;
           height: auto;
-          padding: 0 30px;
-
-          h2 {
-            width: 100%;
-          }
-
-          p {
-            width: 100%;
-          }
-        }
-
-        .productos-card-btn {
-          button {
-            @include btn-mas-info;
-            text-indent: -9999px;
-            overflow: hidden;
-            position: relative;
-
-            &::before {
-              content: 'Agregar';
-              text-indent: 0;
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-            }
-          }
         }
       }
     }
@@ -517,12 +567,8 @@
 
   .modal-resume {
     width: 700px;
-    max-height: 800px;
-  }
-
-  .modal-formulario-envio {
-    width: 700px;
-    height: 510px;
+    max-height: 500px;
+    margin-top: 0;
   }
 
   /* Footer */
@@ -549,13 +595,9 @@
 
 @media only screen and (max-width: 480px) {
 
-  nav {
-    display: none;
-  }
-
   /* Producto principal */
   .cont-principal {
-    height: 570px;
+    height: 100vh;
 
     .cont-producto {
       flex-direction: column;
@@ -568,9 +610,11 @@
         width: 100%;
 
         img {
-          height: 200px;
+          height: 300px;
           width: auto;
-          margin: 20px 0;
+          margin-bottom: 50px;
+          margin-left: 0;
+          margin-right: 0;
         }
       }
 
@@ -586,6 +630,10 @@
         p {
           font-size: $normal;
           margin: 10px 0;
+
+          &:nth-of-type(2) {
+            margin-bottom: 50px;
+          }
         }
       }
     }
@@ -599,16 +647,16 @@
       gap: 20px;
 
       .cont-prod-img {
-        @include tamaños (400px, 180px);
-        padding: 0 20px;
+        @include tamaños (330px, 150px);
+        padding: 0 10px;
 
         img {
           height: 120px;
-          margin-left: 40px;
+          margin-left: 15px;
         }
 
         div {
-          margin-right: 40px;
+          margin-right: 15px;
         }
       }
     }
@@ -616,19 +664,15 @@
 
   /* Productos */
   .cont-productos {
-    display: none;
 
     .cont-productos-card {
       justify-content: center;
 
       .productos-card {
-        width: 600px;
-        height: 300px;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        padding: 20px 50px;
-        margin-bottom: 0;
+        display: flex;
+        flex-direction: column;
+        width: 330px;
+        height: auto;
 
         img {
           width: auto;
@@ -652,17 +696,62 @@
         .productos-card-btn {
           button {
             @include btn-mas-info;
-            text-indent: -9999px;
-            overflow: hidden;
-            position: relative;
+          }
+        }
+      }
+    }
+  }
 
-            &::before {
-              content: 'Agregar';
-              text-indent: 0;
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
+  .notificacion {
+    border-radius: $radius-xl;
+
+    .icono-sweet {
+      font-size: 10px;
+    }
+  }
+
+  /* Modales */
+  .modal-carrito {
+    flex-direction: column;
+    z-index: 2;
+
+    .cont-carrito {
+      margin-top: 0;
+      width: 380px;
+      max-height: 600px;
+
+      .tabla-carrito {
+        display: block;
+
+        thead {
+          display: none;
+        }
+
+        .items-carrito {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+
+          tr {
+            display: block;
+            border: 2px solid $color-calipso;
+            padding: 10px;
+            border-radius: $radius-m;
+            background-color: $color-fondo;
+
+            td {
+              display: block;
+              text-align: left;
+              padding: 0;
+
+              &.id-producto {
+                display: none;
+              }
+
+              img {
+                height: 50px;
+                width: auto;
+              }
             }
           }
         }
@@ -670,46 +759,85 @@
     }
   }
 
-  /* Modales */
-  .modal-carrito {
-    z-index: 2;
+  .modal-resume {
+    width: 380px;
+    max-height: 90vh;
+    padding: 10px;
 
-    .cont-carrito {
-      margin-top: 0;
-      width: 700px;
-      max-height: 300px;
+    .titulo {
+      font-size: $grande;
+      margin-bottom: 10px;
+    }
+
+    .linea {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .resumen {
+      padding: 5px 0;
+      margin-bottom: -2px;
+      border-top: 2px solid $color-calipso;
+      border-bottom: 2px solid $color-calipso;
+    }
+
+    p {
+      margin-top: 20px;
     }
   }
 
-  .modal-resume {
-    width: 700px;
-    max-height: 800px;
-  }
-
+  /* Modal envío */
   .modal-formulario-envio {
-    width: 700px;
-    height: 510px;
+    width: 380px;
+    height: auto;
+
+    .formulario-envio {
+      .formulario-compra {
+        width: 100%;
+
+        .campo-formulario {
+          width: 330px;
+        }
+      }
+    }
   }
 
   /* Footer */
   .cont-footer {
-    display: none;
+    height: auto;
+    padding: 30px 20px;
 
     .cont-links {
-      width: 680px;
+      text-align: left;
+
+      .cont-paginas {
+        display: none;
+      }
 
       .cont-copy {
-        width: 450px;
-
-        p {
-          text-wrap: pretty;
-        }
+        width: 100%;
 
         .formulario-noticias {
-          input {
-            width: 300px;
+          margin-bottom: 50px;
+
+          .cont-entrada {
+            display: flex;
+
+            i {
+              display: none;
+            }
+
+            input {
+              width: 250px;
+            }
           }
+
+
         }
+      }
+
+      .cont-media {
+        display: none;
       }
     }
   }
