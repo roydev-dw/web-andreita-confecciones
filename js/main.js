@@ -22,7 +22,7 @@ const mainContenido = document.querySelector('.contenido');
 /* Funciones */
 async function obtenerProductos() {
   try {
-    const response = await fetch('https://run.mocky.io/v3/e0019dde-815b-4424-b905-469d29633b37');
+    const response = await fetch('https://run.mocky.io/v3/9d23928a-5780-4bce-b1fe-b7338feb3da9');
     if (!response.ok) {
       throw new Error('Error al cargar los productos. Codigo de respuesta: ' + response.status);
     }
